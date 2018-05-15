@@ -2,6 +2,11 @@ body{
     margin: 0;
 }
 
+#bigBox{
+    display: grid;
+    grid-template-columns: repeat(22, auto);
+}
+
 .divEmpty {
     background-color:lightblue;
 }
@@ -19,7 +24,7 @@ body{
 }
 
 .divCloud{
-    background-color: white;
+    background-color : ghostwhite;
 }
 
 .divStone{
@@ -30,9 +35,6 @@ body{
 }
 
 .divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass{
-    height: 50px;
-    width: 50px;
-    display:inline-block;
-    vertical-align: bottom;
+    padding: 25px;
     background-size: contain;
 }

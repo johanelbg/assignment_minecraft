@@ -37,47 +37,36 @@ minecraftGame.layout = function () {
             if (tile == 0) {
                 var divEmpty = $("<div/>");
                 divEmpty.addClass('divEmpty');
-                divEmpty.addClass('col-1');
+                
                 $('#bigBox').append(divEmpty);
             } else if (tile == 1) {
                 var divGround = $("<div/>");
-                divGround.addClass('divGround');
-                divGround.addClass('col-1');
+                divGround.addClass('divGround');         
                 $('#bigBox').append(divGround);
             } else if (tile == 2) {
                 var divWood = $("<div/>");
                 divWood.addClass('divWood');
-                divWood.addClass('col-1');
                 $('#bigBox').append(divWood);
             } else if (tile == 3) {
                 var divLeaf = $("<div/>");
                 divLeaf.addClass('divLeaf');
-                divLeaf.addClass('col-1');
                 $('#bigBox').append(divLeaf);
             } else if (tile == 4) {
                 var divCloud = $("<div/>");
                 divCloud.addClass('divCloud');
-                divCloud.addClass('col-1');
                 $('#bigBox').append(divCloud);
             } else if (tile == 5) {
                 var divStone = $("<div/>");
                 divStone.addClass('divStone');
-                divStone.addClass('col-1');
                 $('#bigBox').append(divStone);
             } else if (tile == 6) {
                 var divGrass = $("<div/>");
                 divGrass.addClass('divGrass');
-                divGrass.addClass('col-1');
                 $('#bigBox').append(divGrass);
             }
         }
     }
 
 };
-
-
-
-           
-
 
 minecraftGame.init();
