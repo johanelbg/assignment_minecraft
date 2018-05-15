@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+}
+
+.divEmpty {
+    background-color:lightblue;
+}
+
+.divGround {
+    background-image: url("https://i.pinimg.com/originals/e7/c6/ad/e7c6ad6df57f796e1e6a8301507ac3cf.png");
+}
+
+.divWood {
+    background-image: url("https://d1yn1kh78jj1rr.cloudfront.net/image/thumbnail/rDtN98Qoishumwih/minecraftpattern-05-091815-744_thumb.jpg");
+}
+
+.divLeaf{
+    background-image: url("https://i.imgur.com/3m3Oi.jpg");
+}
+
+.divCloud{
+    background-color: white;
+}
+
+.divStone{
+    background-image:url("https://i.pinimg.com/236x/78/3e/4f/783e4f238c694624a695f49cf72dd763--minecraft-yahoo.jpg");
+}
+.divGrass{
+    background-image:url("https://static.planetminecraft.com/files/resource_media/screenshot/1812/wiki-background-1521953617_lrg.jpg");
+}
+
+.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass{
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    vertical-align: bottom;
+    background-size: contain;
+}
