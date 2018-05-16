@@ -1,3 +1,14 @@
+$(window).on('load',function(){
+    $('#myModal').modal('show')
+   });
+
+$('#startButton').click(function() {
+    $('#myModal').modal('hide')
+    $('.sideBar').css('display', 'flex')
+    minecraftGame.init();
+});
+
+
 var minecraftGame = {};
 
 minecraftGame.init = function () {
@@ -168,5 +179,3 @@ minecraftGame.tileSys = function(){
         })
     })
 };
-
-minecraftGame.init();

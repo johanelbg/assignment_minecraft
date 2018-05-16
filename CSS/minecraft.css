@@ -2,6 +2,33 @@ body{
     margin: 0;
 }
 
+/*---------------------------------------------------------------Modal---------------------------------------------------------------*/
+.modal-content{
+    height: 20em;
+    border-radius: 0;
+    box-shadow: 5px 10px green;
+    text-align: center;
+    border: solid 4px blue;
+    background: url('https://pre00.deviantart.net/0afc/th/pre/f/2015/196/6/6/minecraft_wallpaper_by_zaktech90-d91dpqh.png');
+    background-size: contain;
+    color: white;
+}
+
+.modal-title{
+    font-size: 3em;
+}
+
+.modal-body{
+    top: 28%;
+}
+
+#startButton{
+    border-radius: 0;
+    background-color: blue;
+    box-shadow: 5px 5px green;
+}
+
+/*---------------------------------------------------------------Game box---------------------------------------------------------------*/
 #bigBox{
     display: inline-grid;
     grid-template-columns: repeat(22, auto);
@@ -39,8 +66,8 @@ body{
     background-size: contain;
 }
 
+/*--------------------------------------------------------------Side bar-----------------------------------------------------------------*/
 .sideBar{
-    display:flex;
     position: fixed;
     flex-flow: column nowrap;
     align-items: center;
@@ -49,6 +76,7 @@ body{
     background-color:black;
     padding: 0 10vh;
     height : 100vh;
+    display: none;
 }
 
 .toolContainer{
