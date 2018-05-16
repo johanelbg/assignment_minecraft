@@ -1,8 +1,8 @@
-$(window).on('load',function(){
+$(window).on('load', function () {
     $('#myModal').modal('show')
-   });
+});
 
-$('#startButton').click(function() {
+$('#startButton').click(function () {
     $('#myModal').modal('hide')
     $('.sideBar').css('display', 'flex')
     minecraftGame.init();
@@ -82,7 +82,7 @@ minecraftGame.layout = function () {
 var counter = 0;
 var tileType = 0;
 
-minecraftGame.tileSys = function(){
+minecraftGame.tileSys = function () {
 
     $("#toolContainer0").on("click", function () {
         counter = 1;
@@ -159,21 +159,25 @@ minecraftGame.tileSys = function(){
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
-        $('.divEmpty').on("click", function () {
-            if (counter == 4) {
-                if (tileType == 1) {
-                    $(this).addClass('divGround');
-                } if (tileType == 2) {
-                    $(this).addClass('divWood');
-                } if (tileType == 3) {
-                    $(this).addClass('divLeaf');
-                } if (tileType == 5) {
-                    $(this).addClass('divStone');
-                } if (tileType == 6) {
-                    $(this).addClass('divGrass');
+        //METTRE UN IF
+        if (tileType == 3 || tileType == 2 || tileType == 5 || tileType == 6 || tileType == 1) {
+            $('.divEmpty').on("click", function () {
+                if (counter == 4) {
+                    $(this).removeClass('divEmpty');
+                    if (tileType == 1) {
+                        $(this).addClass('divGround');
+                    } if (tileType == 2) {
+                        $(this).addClass('divWood');
+                    } if (tileType == 3) {
+                        $(this).addClass('divLeaf');
+                    } if (tileType == 5) {
+                        $(this).addClass('divStone');
+                    } if (tileType == 6) {
+                        $(this).addClass('divGround');
+                    }
+
                 }
-                $(this).removeClass('divEmpty');
-            }
-        })
+            })
+        }
     })
 };
