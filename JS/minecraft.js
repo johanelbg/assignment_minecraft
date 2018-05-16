@@ -1,14 +1,21 @@
+//display modal on loading
 $(window).on('load', function () {
     $('#myModal').modal('show')
-});
+    $('.loading').css('display', 'none')
 
+//charging the page
 $('#startButton').click(function () {
     $('#myModal').modal('hide')
-    $('.sideBar').css('display', 'flex')
-    minecraftGame.init();
+    $('.loading').css('display', 'flex')
+
+    setTimeout(function(){
+      $('.sideBar').css('display', 'flex')
+      $('.loading').css('display', 'none')
+      minecraftGame.init();
+    }, 3000);
 });
 
-
+});
 var minecraftGame = {};
 
 minecraftGame.init = function () {
@@ -84,9 +91,15 @@ var tileType = 0;
 var index;
 var that;
 
+<<<<<<< HEAD
 minecraftGame.tileSys = function () {  
 
     $("#toolContainer0").on("click", function () {   
+=======
+minecraftGame.tileSys = function () {
+
+    $("#toolContainer0").on("click", function () {
+>>>>>>> 2a733f50160ed9c7850817a0c9207e87ae8b2aed
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
@@ -105,7 +118,7 @@ minecraftGame.tileSys = function () {
         $('.divWood').on("click", function () {
 
             if (counter === 1) {
-                
+
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divWood');
                 $('.lastTile').removeClass('divStone divLeaf divGround divGrass')
@@ -124,14 +137,11 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divStone').on("click", function () {
             if (counter === 2) {
-               
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divStone');
                 $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
                 $('.lastTile').addClass('divStone');
                 tileType = 5;
-
-
             }
         })
     })
@@ -145,6 +155,11 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divGrass').on("click", function () {
             if (counter === 3) {
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2a733f50160ed9c7850817a0c9207e87ae8b2aed
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGrass');
                 $('.lastTile').removeClass('divLeaf divWood divGround divStone')
@@ -155,7 +170,7 @@ minecraftGame.tileSys = function () {
         $('.divGround').on("click", function () {
             if (counter === 3) {
 
-                
+
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGround');
                 $('.lastTile').removeClass('divStone divLeaf divWood divGrass')
@@ -223,7 +238,6 @@ minecraftGame.tileSys = function () {
                         $(this).removeClass('divWood divStone divLeaf divGround divGrass divEmpty');
                     }
                 }
-
             })
         }
     })
