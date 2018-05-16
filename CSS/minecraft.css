@@ -3,7 +3,7 @@ body{
 }
 
 #bigBox{
-    display: grid;
+    display: inline-grid;
     grid-template-columns: repeat(22, auto);
 }
 
@@ -37,4 +37,37 @@ body{
 .divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass{
     padding: 25px;
     background-size: contain;
+}
+
+.sideBar{
+    display:flex;
+    position: fixed;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    right:0;
+    background-color:black;
+    padding: 0 10vh;
+    height : 100vh;
+}
+
+.toolContainer{
+    border : 2px solid blue;
+    height : 15vh;
+    width : 15vh;
+    padding:7px;
+    background-size: contain;
+    box-shadow: -5px -5px white;
+}
+
+#toolContainer0{
+    background-image: url("https://frikicaos.es/img/p/2/8/28-large_default.jpg");
+}
+
+#toolContainer1{
+    background-image: url("https://cdn.shopify.com/s/files/1/1783/8113/products/pico_minecrafto_345x@2x.jpg?v=1519479284");
+}
+
+#toolContainer2{
+    background-image: url("https://www.vayava.es/img/p/6/8/6/7/6867-thickbox_default.jpg");
 }

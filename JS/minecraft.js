@@ -1,9 +1,8 @@
 var minecraftGame = {};
 
-
 minecraftGame.init = function () {
     minecraftGame.layout();
-}
+};
 
 minecraftGame.layout = function () {
     var map = {
@@ -37,11 +36,10 @@ minecraftGame.layout = function () {
             if (tile == 0) {
                 var divEmpty = $("<div/>");
                 divEmpty.addClass('divEmpty');
-                
                 $('#bigBox').append(divEmpty);
             } else if (tile == 1) {
                 var divGround = $("<div/>");
-                divGround.addClass('divGround');         
+                divGround.addClass('divGround');
                 $('#bigBox').append(divGround);
             } else if (tile == 2) {
                 var divWood = $("<div/>");
@@ -68,5 +66,11 @@ minecraftGame.layout = function () {
     }
 
 };
+
+minecraftGame.sideNav = function () {
+    
+};
+
+
 
 minecraftGame.init();
