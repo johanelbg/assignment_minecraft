@@ -69,8 +69,6 @@ minecraftGame.layout = function () {
 
 var counter = 0;
 
-
-
 $("#toolContainer0").on("click", function () {
     counter = 1;
     $("#toolContainer0").addClass("selectedTool");
@@ -133,7 +131,5 @@ $("#toolContainer2").on("click", function () {
 
     })
 })
-
-
 
 minecraftGame.init();
