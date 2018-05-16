@@ -19,7 +19,7 @@ minecraftGame.init = function () {
 minecraftGame.layout = function () {
     var map = {
         cols: 22,
-        rows: 22,
+        rows: 15,
         tiles: [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -43,7 +43,7 @@ minecraftGame.layout = function () {
     }
 
     for (var c = 0; c < map.cols; c++) {
-        for (var r = 0; r < map.rows; r++) {
+        for (var r = 0; r < map.cols; r++) {
             var tile = map.getTile(c, r);
             if (tile == 0) {
                 var divEmpty = $("<div/>");
@@ -78,20 +78,32 @@ minecraftGame.layout = function () {
     }
 
 };
-
+var list;
 var counter = 0;
 var tileType = 0;
+var index;
+var that;
 
 minecraftGame.tileSys = function () {
 
     $("#toolContainer0").on("click", function () {
+
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
         $("#toolContainer2").removeClass("selectedTool");
+        $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divLeaf').on("click", function () {
             if (counter === 1) {
+
+                that = this;
+                list = document.querySelectorAll('div');
+                for (var k = 0; k < list.length; k++) {
+                    if (that == list[k]) {
+                        index = k;
+                    }
+                }
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divLeaf');
                 $('.lastTile').removeClass('divStone divWood divGround divGrass')
@@ -100,7 +112,15 @@ minecraftGame.tileSys = function () {
             }
         })
         $('.divWood').on("click", function () {
+
             if (counter === 1) {
+                that = this;
+                list = document.querySelectorAll('div');
+                for (var k = 0; k < list.length; k++) {
+                    if (that == list[k]) {
+                        index = k;
+                    }
+                }
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divWood');
                 $('.lastTile').removeClass('divStone divLeaf divGround divGrass')
@@ -115,14 +135,25 @@ minecraftGame.tileSys = function () {
         $("#toolContainer0").removeClass("selectedTool")
         $("#toolContainer1").addClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
+        $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divStone').on("click", function () {
             if (counter === 2) {
+                that = this;
+                list = document.querySelectorAll('div');
+                for (var k = 0; k < list.length; k++) {
+                    if (that == list[k]) {
+                        index = k;
+                    }
+                }
+
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divStone');
                 $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
                 $('.lastTile').addClass('divStone');
                 tileType = 5;
+
+
             }
         })
     })
@@ -132,9 +163,18 @@ minecraftGame.tileSys = function () {
         $("#toolContainer0").removeClass("selectedTool")
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").addClass("selectedTool")
+        $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divGrass').on("click", function () {
             if (counter === 3) {
+
+                that = this;
+                list = document.querySelectorAll('div');
+                for (var k = 0; k < list.length; k++) {
+                    if (that == list[k]) {
+                        index = k;
+                    }
+                }
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGrass');
                 $('.lastTile').removeClass('divLeaf divWood divGround divStone')
@@ -144,6 +184,14 @@ minecraftGame.tileSys = function () {
         })
         $('.divGround').on("click", function () {
             if (counter === 3) {
+
+                that = this;
+                list = document.querySelectorAll('div');
+                for (var k = 0; k < list.length; k++) {
+                    if (that == list[k]) {
+                        index = k;
+                    }
+                }
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGround');
                 $('.lastTile').removeClass('divStone divLeaf divWood divGrass')
@@ -153,30 +201,56 @@ minecraftGame.tileSys = function () {
         })
     })
 
-    $(".lastTile").on("click", function () {
+    $("#toolContainer3").on("click", function () {
         counter = 4;
         $("#toolContainer0").removeClass("selectedTool")
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
+        $("#toolContainer3").addClass('selectedTool')
+        $("#tileCreator").removeClass("selectedTileCreator")
+        $('.divCloud').on("click", function () {
+            if (counter === 4) {
+                $(this).addClass('divEmpty');
+                $(this).removeClass('divCloud');
+                $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
+                $('.lastTile').addClass('divCloud');
+                tileType = 7;
+            }
+        })
+    })
+
+    $(".lastTile").on("click", function () {
+        counter = 5;
+        $("#toolContainer0").removeClass("selectedTool")
+        $("#toolContainer1").removeClass("selectedTool")
+        $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
-        //METTRE UN IF
-        if (tileType == 3 || tileType == 2 || tileType == 5 || tileType == 6 || tileType == 1) {
+
+
+        if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 5 || tileType == 6 || tileType == 7) { 
             $('.divEmpty').on("click", function () {
-                if (counter == 4) {
-                    $(this).removeClass('divEmpty');
+                if (counter == 5) {
                     if (tileType == 1) {
                         $(this).addClass('divGround');
+                        $(this).removeClass('divLeaf divWood divStone divCloud divGrass divEmpty');
                     } if (tileType == 2) {
                         $(this).addClass('divWood');
+                        $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
                     } if (tileType == 3) {
                         $(this).addClass('divLeaf');
+                        $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
                     } if (tileType == 5) {
                         $(this).addClass('divStone');
+                        $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
                     } if (tileType == 6) {
                         $(this).addClass('divGround');
+                        $(this).removeClass('divWood divStone divLeaf divCloud divGrass divEmpty');
+                    } if (tileType == 7) {
+                        $(this).addClass('divCloud');
+                        $(this).removeClass('divWood divStone divLeaf divGround divGrass divEmpty');
                     }
-
                 }
+
             })
         }
     })
