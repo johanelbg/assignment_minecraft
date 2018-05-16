@@ -29,9 +29,9 @@ minecraftGame.layout = function () {
         rows: 15,
         tiles: [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0],
+            [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0],
+            [0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
             [0, 0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0],
@@ -103,13 +103,6 @@ minecraftGame.tileSys = function () {
         $('.divLeaf').on("click", function () {
             if (counter === 1) {
 
-                that = this;
-                list = document.querySelectorAll('div');
-                for (var k = 0; k < list.length; k++) {
-                    if (that == list[k]) {
-                        index = k;
-                    }
-                }
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divLeaf');
                 $('.lastTile').removeClass('divStone divWood divGround divGrass')
@@ -120,13 +113,7 @@ minecraftGame.tileSys = function () {
         $('.divWood').on("click", function () {
 
             if (counter === 1) {
-                that = this;
-                list = document.querySelectorAll('div');
-                for (var k = 0; k < list.length; k++) {
-                    if (that == list[k]) {
-                        index = k;
-                    }
-                }
+
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divWood');
                 $('.lastTile').removeClass('divStone divLeaf divGround divGrass')
@@ -145,22 +132,11 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divStone').on("click", function () {
             if (counter === 2) {
-
-                that = this;
-                list = document.querySelectorAll('div');
-                for (var k = 0; k < list.length; k++) {
-                    if (that == list[k]) {
-                        index = k;
-                    }
-                }
-                if (list[k+22].className == 'divStone' || list[k+22].className == 'divGrass') {
-                    $(this).addClass('divEmpty');
-                    $(this).removeClass('divStone');
-                    $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
-                    $('.lastTile').addClass('divStone');
-                    tileType = 5;
-                }
-
+                $(this).addClass('divEmpty');
+                $(this).removeClass('divStone');
+                $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
+                $('.lastTile').addClass('divStone');
+                tileType = 5;
             }
         })
     })
@@ -175,13 +151,7 @@ minecraftGame.tileSys = function () {
         $('.divGrass').on("click", function () {
             if (counter === 3) {
 
-                that = this;
-                list = document.querySelectorAll('div');
-                for (var k = 0; k < list.length; k++) {
-                    if (that == list[k]) {
-                        index = k;
-                    }
-                }
+
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGrass');
                 $('.lastTile').removeClass('divLeaf divWood divGround divStone')
@@ -192,13 +162,7 @@ minecraftGame.tileSys = function () {
         $('.divGround').on("click", function () {
             if (counter === 3) {
 
-                that = this;
-                list = document.querySelectorAll('div');
-                for (var k = 0; k < list.length; k++) {
-                    if (that == list[k]) {
-                        index = k;
-                    }
-                }
+
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGround');
                 $('.lastTile').removeClass('divStone divLeaf divWood divGrass')
@@ -232,23 +196,41 @@ minecraftGame.tileSys = function () {
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
-        $('.divEmpty').on("click", function () {
-            if (counter == 5) {
-                if (tileType == 1) {
-                    $(this).addClass('divGround');
-                } if (tileType == 2) {
-                    $(this).addClass('divWood');
-                } if (tileType == 3) {
-                    $(this).addClass('divLeaf');
-                } if (tileType == 5) {
-                    $(this).addClass('divStone');
-                } if (tileType == 6) {
-                    $(this).addClass('divGrass');
-                } if (tileType == 7){
-                  $(this).addClass('divCloud');
+
+
+        if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 5 || tileType == 6 || tileType == 7) {
+            $('.divEmpty').on("click", function () {
+
+                that = this;
+                list = document.querySelectorAll('div');
+                for (var k = 0; k < list.length; k++) {
+                    if (that == list[k]) {
+                        index = k;
+                    }
                 }
-                $(this).removeClass('divEmpty');
-            }
-        })
+
+                if (counter == 5) {
+                    if (tileType == 1  && list[index+22].className == 'divGround') {
+                        $(this).addClass('divGround');
+                        $(this).removeClass('divLeaf divWood divStone divCloud divGrass divEmpty');
+                    } if (tileType == 2 && (list[index+22].className == 'divGrass'|| list[index+22].className == 'divWood')) {
+                        $(this).addClass('divWood');
+                        $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
+                    } if (tileType == 3 && (list[index+22].className == 'divWood'|| list[index+1].className == 'divLeaf'|| list[index-1].className == 'divLeaf'|| list[index+22].className == 'divLeaf')) {
+                        $(this).addClass('divLeaf');
+                        $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
+                    } if (tileType == 5 && (list[index+22].className == 'divGrass'|| list[index+22].className == 'divStone')) {
+                        $(this).addClass('divStone');
+                        $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
+                    } if (tileType == 6 && list[index+22].className == 'divGround') {
+                        $(this).addClass('divGrass');
+                        $(this).removeClass('divWood divStone divLeaf divCloud divGround divEmpty');
+                    } if (tileType == 7 && list[index].className == 'divEmpty') {
+                        $(this).addClass('divCloud');
+                        $(this).removeClass('divWood divStone divLeaf divGround divGrass divEmpty');
+                    }
+                }
+            })
+        }
     })
 };
