@@ -19,7 +19,7 @@ minecraftGame.init = function () {
 minecraftGame.layout = function () {
     var map = {
         cols: 22,
-        rows: 22,
+        rows: 15,
         tiles: [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -43,7 +43,7 @@ minecraftGame.layout = function () {
     }
 
     for (var c = 0; c < map.cols; c++) {
-        for (var r = 0; r < map.rows; r++) {
+        for (var r = 0; r < map.cols; r++) {
             var tile = map.getTile(c, r);
             if (tile == 0) {
                 var divEmpty = $("<div/>");
@@ -145,11 +145,14 @@ minecraftGame.tileSys = function () {
                         index = k;
                     }
                 }
-                $(this).addClass('divEmpty');
-                $(this).removeClass('divStone');
-                $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
-                $('.lastTile').addClass('divStone');
-                tileType = 5;
+                if (list[k+22].className == 'divStone' || list[k+22].className == 'divGrass') {
+                    $(this).addClass('divEmpty');
+                    $(this).removeClass('divStone');
+                    $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
+                    $('.lastTile').addClass('divStone');
+                    tileType = 5;
+                }
+               
             }
         })
     })
@@ -206,14 +209,12 @@ minecraftGame.tileSys = function () {
             if (counter == 4) {
                 if (tileType == 1) {
                     $(this).addClass('divGround');
-                }
-                if (tileType == 2) {
+                } if (tileType == 2) {
                     $(this).addClass('divWood');
                 } if (tileType == 3) {
                     $(this).addClass('divLeaf');
                 } if (tileType == 5) {
                     $(this).addClass('divStone');
-
                 } if (tileType == 6) {
                     $(this).addClass('divGrass');
                 }
@@ -222,7 +223,3 @@ minecraftGame.tileSys = function () {
         })
     })
 };
-
-
-
-

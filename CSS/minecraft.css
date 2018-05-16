@@ -67,6 +67,12 @@ body{
 .divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass{
     padding: 25px;
     background-size: contain;
+    transition: all 0.5s linear;
+}
+
+.divEmpty:hover, .divLeaf:hover, .divGround:hover, .divWood:hover, .divCloud:hover, .divStone:hover, .divGrass:hover{
+  border: solid 2px blue;
+  padding: 23px;
 }
 
 /*--------------------------------------------------------------Side bar-----------------------------------------------------------------*/
@@ -104,18 +110,19 @@ body{
 }
 
 .lastTile{
-    border : 2px solid blue;
-    height : 8vh;
-    width : 8vh;
+    border: 2px solid blue;
+    height: 8vh;
+    width: 8vh;
     padding:7px;
     background-size: contain;
     box-shadow: -5px -5px white;
+    transition: all 0.5s linear;
 }
 
 .selectedTool{
-    border : 4px solid red;
+    border: 4px solid red;
 }
 
 .selectedTileCreator{
-    border : 7px solid yellowgreen;
+    border: 7px solid yellowgreen;
 }
