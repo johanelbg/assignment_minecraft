@@ -2,7 +2,37 @@ body{
     margin: 0;
 }
 
+.loading{
+  justify-content: center;
+  align-self: center;
+  height: 100vmax;
+  width: 100vmax;
+  background-color: lightgreen;
+}
+
+.loader {
+  margin-top: 20%;
+  display: block;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /*---------------------------------------------------------------Modal---------------------------------------------------------------*/
+#myModal{
+  background: url('https://wallpapercave.com/wp/QVjcxmp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .modal-content{
     height: 20em;
     border-radius: 0;

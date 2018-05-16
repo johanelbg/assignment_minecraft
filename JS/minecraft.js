@@ -1,14 +1,21 @@
+//display modal on loading
 $(window).on('load', function () {
     $('#myModal').modal('show')
-});
+    $('.loading').css('display', 'none')
 
+//charging the page
 $('#startButton').click(function () {
     $('#myModal').modal('hide')
-    $('.sideBar').css('display', 'flex')
-    minecraftGame.init();
+    $('.loading').css('display', 'flex')
+
+    setTimeout(function(){
+      $('.sideBar').css('display', 'flex')
+      $('.loading').css('display', 'none')
+      minecraftGame.init();
+    }, 3000);
 });
 
-
+});
 var minecraftGame = {};
 
 minecraftGame.init = function () {
@@ -87,7 +94,6 @@ var that;
 minecraftGame.tileSys = function () {
 
     $("#toolContainer0").on("click", function () {
-
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
@@ -154,7 +160,7 @@ minecraftGame.tileSys = function () {
                     $('.lastTile').addClass('divStone');
                     tileType = 5;
                 }
-               
+
             }
         })
     })
