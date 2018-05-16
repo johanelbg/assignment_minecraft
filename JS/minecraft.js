@@ -32,7 +32,7 @@ minecraftGame.layout = function () {
 
     for (var c = 0; c < map.cols; c++) {
         for (var r = 0; r < map.rows; r++) {
-            var tile = map.getTile(c,r);
+            var tile = map.getTile(c, r);
             if (tile == 0) {
                 var divEmpty = $("<div/>");
                 divEmpty.addClass('divEmpty');
@@ -67,9 +67,72 @@ minecraftGame.layout = function () {
 
 };
 
-minecraftGame.sideNav = function () {
-    
-};
+var counter = 0;
+
+
+
+$("#toolContainer0").on("click", function () {
+    counter = 1;
+    $("#toolContainer0").addClass("selectedTool");
+    $("#toolContainer1").removeClass("selectedTool");
+    $("#toolContainer2").removeClass("selectedTool");
+    $('.divLeaf').on("click", function () {
+        if (counter === 1) {
+            $(this).addClass('divEmpty');
+            $(this).removeClass('divLeaf');
+            $('.lastTile').removeClass('divStone divWood divGround divGrass')
+            $('.lastTile').addClass('divLeaf')
+        }
+    })
+    $('.divWood').on("click", function () {
+        if (counter === 1) {
+            $(this).addClass('divEmpty');
+            $(this).removeClass('divWood');
+            $('.lastTile').removeClass('divStone divLeaf divGround divGrass')
+            $('.lastTile').addClass('divWood')
+        }
+    })
+})
+
+$("#toolContainer1").on("click", function () {
+    counter = 2;
+    $("#toolContainer0").removeClass("selectedTool")
+    $("#toolContainer1").addClass("selectedTool")
+    $("#toolContainer2").removeClass("selectedTool")
+    $('.divStone').on("click", function () {
+        if (counter === 2) {
+            $(this).addClass('divEmpty');
+            $(this).removeClass('divStone');
+            $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
+            $('.lastTile').addClass('divStone');
+        }
+
+    })
+})
+
+$("#toolContainer2").on("click", function () {
+    counter = 3;
+    $("#toolContainer0").removeClass("selectedTool")
+    $("#toolContainer1").removeClass("selectedTool")
+    $("#toolContainer2").addClass("selectedTool")
+    $('.divGrass').on("click", function () {
+        if (counter === 3) {
+            $(this).addClass('divEmpty');
+            $(this).removeClass('divGrass');
+            $('.lastTile').removeClass('divLeaf divWood divGround divStone')
+            $('.lastTile').addClass('divGrass')
+        }
+    })
+    $('.divGround').on("click", function () {
+        if (counter === 3) {
+            $(this).addClass('divEmpty');
+            $(this).removeClass('divGround');
+            $('.lastTile').removeClass('divStone divLeaf divWood divGrass')
+            $('.lastTile').addClass('divGround')
+        }
+
+    })
+})
 
 
 
