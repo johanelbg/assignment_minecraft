@@ -10,7 +10,9 @@ body{
     text-align: center;
     border: solid 4px blue;
     background: url('https://pre00.deviantart.net/0afc/th/pre/f/2015/196/6/6/minecraft_wallpaper_by_zaktech90-d91dpqh.png');
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
 }
 
@@ -19,7 +21,8 @@ body{
 }
 
 .modal-body{
-    top: 28%;
+    top: 20%;
+    font-size: 1.5em;
 }
 
 #startButton{
