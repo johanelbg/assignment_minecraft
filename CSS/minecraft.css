@@ -54,7 +54,7 @@ body{
 }
 
 .divCloud{
-    background-color : ghostwhite;
+    background-color: #F8FBEF;
 }
 
 .divStone{
@@ -93,7 +93,8 @@ body{
     height : 15vh;
     width : 15vh;
     padding:7px;
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
     box-shadow: -5px -5px white;
 }
 
@@ -107,6 +108,10 @@ body{
 
 #toolContainer2{
     background-image: url("https://www.vayava.es/img/p/6/8/6/7/6867-thickbox_default.jpg");
+}
+
+#toolContainer3{
+  background-image:  url('https://s3.amazonaws.com/kandipatternspatterns/characters/11458_Bob_Marley_2.png')
 }
 
 .lastTile{

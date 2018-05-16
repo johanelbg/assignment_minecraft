@@ -89,6 +89,7 @@ minecraftGame.tileSys = function(){
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
         $("#toolContainer2").removeClass("selectedTool");
+        $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divLeaf').on("click", function () {
             if (counter === 1) {
@@ -115,6 +116,7 @@ minecraftGame.tileSys = function(){
         $("#toolContainer0").removeClass("selectedTool")
         $("#toolContainer1").addClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
+        $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divStone').on("click", function () {
             if (counter === 2) {
@@ -132,6 +134,7 @@ minecraftGame.tileSys = function(){
         $("#toolContainer0").removeClass("selectedTool")
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").addClass("selectedTool")
+        $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divGrass').on("click", function () {
             if (counter === 3) {
@@ -153,14 +156,32 @@ minecraftGame.tileSys = function(){
         })
     })
 
-    $(".lastTile").on("click", function () {
+    $("#toolContainer3").on("click", function () {
         counter = 4;
+        $("#toolContainer0").removeClass("selectedTool")
+        $("#toolContainer1").removeClass("selectedTool")
+        $("#toolContainer2").removeClass("selectedTool")
+        $("#toolContainer3").addClass('selectedTool')
+        $("#tileCreator").removeClass("selectedTileCreator")
+        $('.divCloud').on("click", function () {
+            if (counter === 4) {
+                $(this).addClass('divEmpty');
+                $(this).removeClass('divCloud');
+                $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
+                $('.lastTile').addClass('divCloud');
+                tileType = 7;
+            }
+        })
+    })
+
+    $(".lastTile").on("click", function () {
+        counter = 5;
         $("#toolContainer0").removeClass("selectedTool")
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
         $('.divEmpty').on("click", function () {
-            if (counter == 4) {
+            if (counter == 5) {
                 if (tileType == 1) {
                     $(this).addClass('divGround');
                 } if (tileType == 2) {
@@ -171,6 +192,8 @@ minecraftGame.tileSys = function(){
                     $(this).addClass('divStone');
                 } if (tileType == 6) {
                     $(this).addClass('divGrass');
+                } if (tileType == 7){
+                  $(this).addClass('divCloud');
                 }
                 $(this).removeClass('divEmpty');
             }
