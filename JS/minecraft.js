@@ -16,9 +16,9 @@ minecraftGame.init = function () {
     minecraftGame.layout();
 };
 
-minecraftGame.layout = function () {
-    var map = {
-        cols: 22,
+minecraftGame.layout = function () {  //Creates a 2D array with a method that takes the coordinates of a cell of the array, and returns its value. Then dynamically generates a div for each cell. 
+    var map = {                       
+        cols: 22, 
         rows: 15,
         tiles: [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -45,9 +45,9 @@ minecraftGame.layout = function () {
     for (var c = 0; c < map.cols; c++) {
         for (var r = 0; r < map.cols; r++) {
             var tile = map.getTile(c, r);
-            if (tile == 0) {
+            if (tile == 0) {  //tile returns the value of the cell that has c and r as coordinates.
                 var divEmpty = $("<div/>");
-                divEmpty.addClass('divEmpty');
+                divEmpty.addClass('divEmpty'); //add a style to cells according to their value
                 $('#bigBox').append(divEmpty);
             } else if (tile == 1) {
                 var divGround = $("<div/>");
@@ -84,10 +84,9 @@ var tileType = 0;
 var index;
 var that;
 
-minecraftGame.tileSys = function () {
+minecraftGame.tileSys = function () {  
 
-    $("#toolContainer0").on("click", function () {
-
+    $("#toolContainer0").on("click", function () {   
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
@@ -96,7 +95,6 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divLeaf').on("click", function () {
             if (counter === 1) {
-
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divLeaf');
                 $('.lastTile').removeClass('divStone divWood divGround divGrass')
@@ -147,8 +145,6 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divGrass').on("click", function () {
             if (counter === 3) {
-
-                
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGrass');
                 $('.lastTile').removeClass('divLeaf divWood divGround divStone')
@@ -198,7 +194,7 @@ minecraftGame.tileSys = function () {
         if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 5 || tileType == 6 || tileType == 7) {
             $('.divEmpty').on("click", function () {
 
-                that = this;
+                that = this; //turfu
                 list = document.querySelectorAll('div');
                 for (var k = 0; k < list.length; k++) {
                     if (that == list[k]) {
@@ -206,7 +202,7 @@ minecraftGame.tileSys = function () {
                     }
                 }
 
-                if (counter == 5) {
+                if (counter == 5) { //fonction turfu
                     if (tileType == 1  && list[index+22].className == 'divGround') {
                         $(this).addClass('divGround');
                         $(this).removeClass('divLeaf divWood divStone divCloud divGrass divEmpty');
