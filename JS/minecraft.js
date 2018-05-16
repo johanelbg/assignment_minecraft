@@ -109,7 +109,7 @@ minecraftGame.tileSys = function(){
             }
         })
     })
-    
+
     $("#toolContainer1").on("click", function () {
         counter = 2;
         $("#toolContainer0").removeClass("selectedTool")
@@ -126,7 +126,7 @@ minecraftGame.tileSys = function(){
             }
         })
     })
-    
+
     $("#toolContainer2").on("click", function () {
         counter = 3;
         $("#toolContainer0").removeClass("selectedTool")
@@ -152,7 +152,7 @@ minecraftGame.tileSys = function(){
             }
         })
     })
-    
+
     $(".lastTile").on("click", function () {
         counter = 4;
         $("#toolContainer0").removeClass("selectedTool")
@@ -163,14 +163,12 @@ minecraftGame.tileSys = function(){
             if (counter == 4) {
                 if (tileType == 1) {
                     $(this).addClass('divGround');
-                }
-                if (tileType == 2) {
+                } if (tileType == 2) {
                     $(this).addClass('divWood');
                 } if (tileType == 3) {
                     $(this).addClass('divLeaf');
                 } if (tileType == 5) {
                     $(this).addClass('divStone');
-    
                 } if (tileType == 6) {
                     $(this).addClass('divGrass');
                 }
