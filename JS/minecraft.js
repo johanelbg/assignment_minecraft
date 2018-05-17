@@ -18,9 +18,8 @@ $(window).on('load', function () {
     });
 
     $('#instrucButton').click(function () {
-        $('#instrucModal').modal('show');
+        $('#exampleModalLong').modal('show');
     })
-
 });
 
 var minecraftGame = {};
