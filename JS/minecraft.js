@@ -25,11 +25,6 @@ $(window).on('load', function () {
 
 });
 
-
-
-
-
-
 var minecraftGame = {};
 
 minecraftGame.init = function () {
@@ -221,7 +216,6 @@ minecraftGame.tileSys = function () {
         })
     })
 
-
     $(".lastTile").on("click", function () {
         counter = 5;
         $("#toolContainer0").removeClass("selectedTool")
@@ -244,7 +238,6 @@ minecraftGame.tileSys = function () {
                     }
                 }
 
-
                 // We want to put a new element in the matrix, we want to do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
                 if (counter == 5) {
                     if (tileType == 1 && list[index + 66].className == 'divGround') {
@@ -254,7 +247,7 @@ minecraftGame.tileSys = function () {
                     } if (tileType == 2 && (list[index + 66].className == 'divGrass' || list[index + 66].className == 'divWood')) {
                         $(this).addClass('divWood');
                         $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
-                        grassWood.play();
+                        woodSound.play();
                     } if (tileType == 3 && (list[index + 66].className == 'divWood' || list[index + 1].className == 'divLeaf'|| list[index-66].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 66].className == 'divLeaf')) {
                         $(this).addClass('divLeaf');
                         $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
