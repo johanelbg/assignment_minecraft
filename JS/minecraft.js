@@ -16,8 +16,8 @@ $(window).on('load', function () {
         $('.loading').css('display', 'flex')
 
         setTimeout(function () {
-            $('.sideBar').css('display', 'flex')
-            $('.loading').css('display', 'none')
+            $('.sideBar').css('display', 'flex');
+            $('.loading').css('display', 'none');
             minecraftGame.init();
         }, 3000);
     });
@@ -105,7 +105,7 @@ var that;
 
 minecraftGame.tileSys = function () {
 
-    $("#toolContainer0").on("click", function () {
+    $("#toolContainer0").on("click", function () {  
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
