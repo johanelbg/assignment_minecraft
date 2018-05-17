@@ -27,72 +27,6 @@ body{
   100% { transform: rotate(360deg); }
 }
 
-/*---------------------------------------------------------------Modals---------------------------------------------------------------*/
-#myModal{
-  background: url('https://wallpapercave.com/wp/QVjcxmp.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-
-.modalStyle{
-    height: 17em;
-    border-radius: 0;
-    box-shadow: 5px 10px green;
-    text-align: center;
-    border: solid 4px blue;
-    background: url('https://pre00.deviantart.net/0afc/th/pre/f/2015/196/6/6/minecraft_wallpaper_by_zaktech90-d91dpqh.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    align-items: center;
-}
-
-.modal-title{
-    font-size: 3em;
-}
-
-.modal-body{
-    top: 14%;
-    font-size: 1.5em;
-}
-
-#startButton, #instrucButton{
-    position: relative;
-    border-radius: 0;
-    background-color: blue;
-    box-shadow: 5px 5px green;
-    display: block;
-    margin: 3%;
-}
-#gotItButton{
-  border-radius: 0;
-  background-color: blue;
-  box-shadow: 5px 5px green;
-}
-
-#startButton{
-  right: -31%;
-}
-
-#instrucButton{
-  right: -38%;
-}
-
-#instrucModal{
-  background: url('http://www.villreal.com/img199/ebnyuzivykcquopykedr.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.modal-footer{
-  border: none;
-}
-
-.modal-header{
-  border: none;
-}
 /*---------------------------------------------------------------Game box---------------------------------------------------------------*/
 #bigBox{
     display: inline-grid;
@@ -220,6 +154,91 @@ body{
 
 .selectedTileCreator{
     border: 7px solid yellowgreen;
+}
+
+
+/*---------------------------------------------------------------Modals---------------------------------------------------------------*/
+#myModal{
+  background: url('https://wallpapercave.com/wp/QVjcxmp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.StartModalStyle{
+    height: 17em;
+    border-radius: 0;
+    box-shadow: 5px 10px green;
+    text-align: center;
+    border: solid 4px blue;
+    background: url('https://pre00.deviantart.net/0afc/th/pre/f/2015/196/6/6/minecraft_wallpaper_by_zaktech90-d91dpqh.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    align-items: center;
+}
+
+.modal-title{
+    font-size: 3em;
+}
+
+.modal-body{
+    top: 14%;
+    font-size: 1.5em;
+}
+
+#startButton, #instrucButton{
+    position: relative;
+    border-radius: 0;
+    background-color: blue;
+    box-shadow: 5px 5px green;
+    display: block;
+    margin: 3%;
+}
+#gotItButton{
+  border-radius: 0;
+  background-color: blue;
+  box-shadow: 5px 5px green;
+}
+
+#startButton{
+  right: -31%;
+}
+
+
+/*---------------------------------------------------------------Instruction modal---------------------------------------------------------------*/
+
+#instrucButton{
+  right: -38%;
+}
+
+.instrucModal{
+  background: url('http://www.villreal.com/img199/ebnyuzivykcquopykedr.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.instrucModalStyle{
+  text-align: center;
+  border: solid 4px blue;
+  border-radius: 0;
+  box-shadow: 5px 10px green;
+  background: url('https://pre00.deviantart.net/0afc/th/pre/f/2015/196/6/6/minecraft_wallpaper_by_zaktech90-d91dpqh.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  background-position: top;
+}
+
+.modal-footer{
+  border: none;
+  justify-content: center;
+}
+
+.modal-header{
+  border: none;
 }
 
 /*--------------------------------------------------------------Final Modal-----------------------------------------------------------------*/
