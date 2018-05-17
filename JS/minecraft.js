@@ -191,7 +191,7 @@ minecraftGame.tileSys = function () {
             if (counter === 4) {
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divCloud');
-                $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
+                $('.lastTile').removeClass('divLeaf divWood divGround divGrass divStone');
                 $('.lastTile').addClass('divCloud');
                 tileType = 7;
                 
