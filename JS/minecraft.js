@@ -35,7 +35,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
         cols: 66,
         rows: 15,
         tiles: [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -56,7 +56,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
         },
     }
 
-    for (var c = 0; c < map.cols; c++) {
+    for (var c = 0; c < map.rows; c++) {
         for (var r = 0; r < map.cols; r++) {
             var tile = map.getTile(c, r);
             if (tile == 0) {  //tile returns the value of the cell that has c and r as coordinates.
@@ -95,6 +95,10 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
             }
         }
     }
+    listMistery = document.querySelectorAll(".divEmpty");
+        random = Math.floor(Math.random() * listMistery.length);
+        listMistery[random].classList.remove("divEmpty");
+        listMistery[random].classList.add("divNum10");
 
 };
 var list;
@@ -103,11 +107,18 @@ var tileType = 0;
 var index;
 var that;
 var indexMistery;
+var listMistery;
+var random;
 
+
+
+    
 
 minecraftGame.tileSys = function () {
+    
 
     $("#toolContainer0").on("click", function () {  
+        
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
@@ -200,12 +211,18 @@ minecraftGame.tileSys = function () {
     })
 
 
+    
+
+
     $(".lastTile").on("click", function () {
+        
         counter = 5;
         $("#toolContainer0").removeClass("selectedTool")
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
+
+        
 
 
         if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 5 || tileType == 6 || tileType == 7) {
@@ -221,6 +238,8 @@ minecraftGame.tileSys = function () {
                         indexMistery = k;
                     }
                 }
+
+               
 
 
                 // We want to put a new element in the matrix, we want do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
@@ -257,5 +276,7 @@ minecraftGame.tileSys = function () {
                 }
             })
         }
+        
     })
+    
 };
