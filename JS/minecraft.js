@@ -138,8 +138,11 @@ minecraftGame.tileSys = function () {
 
                     list[that+1].classList.add("divMinion");
                     list[that+1].classList.remove("divEmpty");
+                
                 }
+                break;
             }
+            
         }
     });
 
