@@ -1,19 +1,21 @@
 //display modal on loading
+
+
 $(window).on('load', function () {
     $('#myModal').modal('show')
     $('.loading').css('display', 'none')
 
-//charging the page
-$('#startButton').click(function () {
-    $('#myModal').modal('hide')
-    $('.loading').css('display', 'flex')
+    //charging the page
+    $('#startButton').click(function () {
+        $('#myModal').modal('hide')
+        $('.loading').css('display', 'flex')
 
-    setTimeout(function(){
-      $('.sideBar').css('display', 'flex')
-      $('.loading').css('display', 'none')
-      minecraftGame.init();
-    }, 3000);
-});
+        setTimeout(function () {
+            $('.sideBar').css('display', 'flex')
+            $('.loading').css('display', 'none')
+            minecraftGame.init();
+        }, 3000);
+    });
 
 });
 var minecraftGame = {};
@@ -24,11 +26,11 @@ minecraftGame.init = function () {
 };
 
 minecraftGame.layout = function () {  //Creates a 2D array with a method that takes the coordinates of a cell of the array, and returns its value. Then dynamically generates a div for each cell. 
-    var map = {                       
-        cols: 22, 
+    var map = {
+        cols: 22,
         rows: 15,
         tiles: [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0],
             [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 0, 0],
             [0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
@@ -80,6 +82,11 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
                 var divGrass = $("<div/>");
                 divGrass.addClass('divGrass');
                 $('#bigBox').append(divGrass);
+
+            } else if (tile == 7) {
+                var divNum10 = $("<div/>");
+                divNum10.addClass('divNum10');
+                $('#bigBox').append(divNum10);
             }
         }
     }
@@ -91,15 +98,9 @@ var tileType = 0;
 var index;
 var that;
 
-<<<<<<< HEAD
-minecraftGame.tileSys = function () {  
-
-    $("#toolContainer0").on("click", function () {   
-=======
 minecraftGame.tileSys = function () {
 
     $("#toolContainer0").on("click", function () {
->>>>>>> 2a733f50160ed9c7850817a0c9207e87ae8b2aed
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
@@ -155,11 +156,6 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator")
         $('.divGrass').on("click", function () {
             if (counter === 3) {
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2a733f50160ed9c7850817a0c9207e87ae8b2aed
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGrass');
                 $('.lastTile').removeClass('divLeaf divWood divGround divStone')
@@ -194,9 +190,11 @@ minecraftGame.tileSys = function () {
                 $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
                 $('.lastTile').addClass('divCloud');
                 tileType = 7;
+                
             }
         })
     })
+
 
     $(".lastTile").on("click", function () {
         counter = 5;
@@ -218,19 +216,30 @@ minecraftGame.tileSys = function () {
                 }
 
                 if (counter == 5) { //fonction turfu
-                    if (tileType == 1  && list[index+22].className == 'divGround') {
+                    if (tileType == 1 && list[index + 22].className == 'divGround') {
                         $(this).addClass('divGround');
                         $(this).removeClass('divLeaf divWood divStone divCloud divGrass divEmpty');
-                    } if (tileType == 2 && (list[index+22].className == 'divGrass'|| list[index+22].className == 'divWood')) {
+                    } if (tileType == 2 && (list[index + 22].className == 'divGrass' || list[index + 22].className == 'divWood')) {
                         $(this).addClass('divWood');
                         $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
-                    } if (tileType == 3 && (list[index+22].className == 'divWood'|| list[index+1].className == 'divLeaf'|| list[index-1].className == 'divLeaf'|| list[index+22].className == 'divLeaf')) {
+                    } if (tileType == 3 && (list[index + 22].className == 'divWood' || list[index + 1].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 22].className == 'divLeaf')) {
                         $(this).addClass('divLeaf');
                         $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
-                    } if (tileType == 5 && (list[index+22].className == 'divGrass'|| list[index+22].className == 'divStone')) {
+                    } if (tileType == 5 && (list[index + 22].className == 'divGrass' || list[index + 22].className == 'divStone')) {
                         $(this).addClass('divStone');
                         $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
-                    } if (tileType == 6 && list[index+22].className == 'divGround') {
+                        
+                     if (tileType == 5 && list[45].className == 'divStone') { //VERIFIER QUE YA UNE STONE SOUS LA CASE SECRETE + ONCLICK SI TU CLICK LA CASE SECRETE C LA WIN
+                            $(".divNum10").addClass('victoryTile');
+                            $(".divNum10").removeClass('.divNum10');
+                            $(".victoryTile").on("click", function(){
+                                var finalSong = new Audio('victorySong.mp3');
+                                finalSong.play();
+                                $(this).removeClass("divNum10");
+                                console.log("YOU WIN")
+                            });
+                    }
+                    } if (tileType == 6 && list[index + 22].className == 'divGround') {
                         $(this).addClass('divGrass');
                         $(this).removeClass('divWood divStone divLeaf divCloud divGround divEmpty');
                     } if (tileType == 7 && list[index].className == 'divEmpty') {

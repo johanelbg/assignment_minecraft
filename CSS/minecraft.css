@@ -94,7 +94,15 @@ body{
     background-image:url("https://static.planetminecraft.com/files/resource_media/screenshot/1812/wiki-background-1521953617_lrg.jpg");
 }
 
-.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass{
+.divNum10{
+    background-color:lightblue;
+}
+
+.victoryTile{
+    background-image:url("http://2.bp.blogspot.com/_N9GN5lJv-Ws/TNCg3AnW8EI/AAAAAAAAGRM/r9TTz9OXDIA/gold%2010.jpg");  
+}
+
+.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divNum10, .victoryTile{
     padding: 25px;
     background-size: contain;
     transition: all 0.5s linear;
@@ -141,7 +149,7 @@ body{
 }
 
 #toolContainer3{
-  background-image:  url('https://s3.amazonaws.com/kandipatternspatterns/characters/11458_Bob_Marley_2.png')
+  background-image:  url('https://s3.amazonaws.com/kandipatternspatterns/characters/11458_Bob_Marley_2.png');
 }
 
 .lastTile{
