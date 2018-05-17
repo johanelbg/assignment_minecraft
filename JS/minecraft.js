@@ -56,7 +56,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
         },
     }
 
-    for (var c = 0; c < map.cols; c++) {
+    for (var c = 0; c < map.rows; c++) {
         for (var r = 0; r < map.cols; r++) {
             var tile = map.getTile(c, r);
             if (tile == 0) {  //tile returns the value of the cell that has c and r as coordinates.
@@ -100,6 +100,11 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
         }
     }
 
+    listMistery = document.querySelectorAll(".divEmpty");
+    random = Math.floor(Math.random() * listMistery.length);
+    listMistery[random].classList.remove("divEmpty");
+    listMistery[random].classList.add("divNum10");
+
 };
 var list;
 var counter = 0;
@@ -107,7 +112,8 @@ var tileType = 0;
 var index;
 var that;
 var indexMistery;
-
+var listMistery;
+var random;
 
 minecraftGame.tileSys = function () {
 
@@ -119,6 +125,32 @@ minecraftGame.tileSys = function () {
     var woodSound = new Audio('./sounds/wood.mp3');
     var groundSound = new Audio('./sounds/ground.mp3');
     var cloudSound = new Audio('./sounds/breath.mp3');
+
+    $("#toTheRight").on("click", function () {
+        that = this;
+        list = document.querySelectorAll('div');
+        for (var k = 0; k < list.length; k++) {
+            if (list[that+1].className == "divEmpty") {
+                list[that].classList.remove("divMinion");
+                list[that].classList.add("divEmpty");
+                list[that+1].classList.add("divMinion");
+                list[that+1].classList.remove("divEmpty");
+            }
+        }
+    });
+
+    $("#toTheLeft").on("click", function () {
+        that = this;
+        list = document.querySelectorAll('div');
+        for (var k = 0; k < list.length; k++) {
+            if (list[that-1].className == "divEmpty") {
+                list[that].classList.remove("divMinion");
+                list[that].classList.add("divEmpty");
+                list[that-1].classList.add("divMinion");
+                list[that-1].classList.remove("divEmpty");
+            }
+        }
+    });
 
     $("#toolContainer0").on("click", function () {
         counter = 1;
