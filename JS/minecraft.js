@@ -209,7 +209,7 @@ minecraftGame.tileSys = function () {
         if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 5 || tileType == 6 || tileType == 7) {
             $('.divEmpty').on("click", function () {
 
-                that = this; //turfu
+                that = this; //Here we want to find the index of the div we want to put the element in
                 list = document.querySelectorAll('div');
                 for (var k = 0; k < list.length; k++) {
                     if (that == list[k]) {
@@ -217,6 +217,8 @@ minecraftGame.tileSys = function () {
                     }
                 }
 
+
+                // We want to put a new element in the matrix, we want do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
                 if (counter == 5) { //fonction turfu
                     if (tileType == 1 && list[index + 22].className == 'divGround') {
                         $(this).addClass('divGround');
@@ -224,7 +226,7 @@ minecraftGame.tileSys = function () {
                     } if (tileType == 2 && (list[index + 22].className == 'divGrass' || list[index + 22].className == 'divWood')) {
                         $(this).addClass('divWood');
                         $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
-                    } if (tileType == 3 && (list[index + 22].className == 'divWood' || list[index + 1].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 22].className == 'divLeaf')) {
+                    } if (tileType == 3 && (list[index + 22].className == 'divWood' || list[index + 1].className == 'divLeaf'|| list[index-22].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 22].className == 'divLeaf')) {
                         $(this).addClass('divLeaf');
                         $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
                     } if (tileType == 5 && (list[index + 22].className == 'divGrass' || list[index + 22].className == 'divStone')) {
