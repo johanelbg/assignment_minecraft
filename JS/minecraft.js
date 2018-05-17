@@ -1,5 +1,6 @@
 
 //display modal on loading
+
 $(window).on('load', function () {
     $('#myModal').modal('show');
 
