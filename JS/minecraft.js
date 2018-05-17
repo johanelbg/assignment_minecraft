@@ -116,7 +116,7 @@ minecraftGame.tileSys = function () {
             if (counter === 1) {
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divLeaf');
-                $('.lastTile').removeClass('divStone divWood divGround divGrass')
+                $('.lastTile').removeClass('divStone divWood divCloud divGround divGrass')
                 $('.lastTile').addClass('divLeaf')
                 tileType = 3;
             }
@@ -126,7 +126,7 @@ minecraftGame.tileSys = function () {
             if (counter === 1) {
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divWood');
-                $('.lastTile').removeClass('divStone divLeaf divGround divGrass')
+                $('.lastTile').removeClass('divStone divLeaf divCloud divGround divGrass')
                 $('.lastTile').addClass('divWood')
                 tileType = 2;
             }
@@ -144,7 +144,7 @@ minecraftGame.tileSys = function () {
             if (counter === 2) {
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divStone');
-                $('.lastTile').removeClass('divLeaf divWood divGround divGrass');
+                $('.lastTile').removeClass('divLeaf divWood divCloud divGround divGrass');
                 $('.lastTile').addClass('divStone');
                 tileType = 5;
             }
@@ -162,18 +162,16 @@ minecraftGame.tileSys = function () {
             if (counter === 3) {
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGrass');
-                $('.lastTile').removeClass('divLeaf divWood divGround divStone')
+                $('.lastTile').removeClass('divLeaf divWood divCloud divGround divStone')
                 $('.lastTile').addClass('divGrass')
                 tileType = 6;
             }
         })
         $('.divGround').on("click", function () {
             if (counter === 3) {
-
-
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divGround');
-                $('.lastTile').removeClass('divStone divLeaf divWood divGrass')
+                $('.lastTile').removeClass('divStone divLeaf divCloud divWood divGrass')
                 $('.lastTile').addClass('divGround')
                 tileType = 1;
             }
