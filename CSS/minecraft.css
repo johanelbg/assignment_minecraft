@@ -98,7 +98,7 @@ body{
     background-color:lightblue;
 }
 
-.victoryTile{
+.victoryTile{ /*--changer par une tile minecraft de diamant */
     background-image:url("http://2.bp.blogspot.com/_N9GN5lJv-Ws/TNCg3AnW8EI/AAAAAAAAGRM/r9TTz9OXDIA/gold%2010.jpg");  
 }
 

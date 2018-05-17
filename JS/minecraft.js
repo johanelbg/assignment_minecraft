@@ -124,7 +124,6 @@ minecraftGame.tileSys = function () {
         $('.divWood').on("click", function () {
 
             if (counter === 1) {
-
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divWood');
                 $('.lastTile').removeClass('divStone divLeaf divGround divGrass')
@@ -238,10 +237,9 @@ minecraftGame.tileSys = function () {
                             $(".divNum10").addClass('victoryTile');
                             $(".divNum10").removeClass('.divNum10');
                             $(".victoryTile").on("click", function(){
-                                var finalSong = new Audio('victorySong.mp3');
+                                var finalSong = new Audio('victorySong.mp3'); // OK C DAR MAINTENANT FAUT AJOUTER LA VAR COUNTER ET VAR TILETYPE POUR POUVOIR RECUPERER LA CASE SECRETE ET POUVOIR LA POSER UN PEU PARTOUT
                                 finalSong.play();
-                                $(this).removeClass("divNum10");
-                                console.log("YOU WIN")
+                                $(this).removeClass("divNum10"); // surement supprimable
                             });
                     }
                     } if (tileType == 6 && list[index + 22].className == 'divGround') {
