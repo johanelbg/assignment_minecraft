@@ -118,7 +118,14 @@ var indexMistery;
 
 minecraftGame.tileSys = function () {
 
-    $("#toolContainer0").on("click", function () {  
+    var breakSound = new Audio('./sounds/break.mp3');
+    var grassSound = new Audio('./sounds/grass.mp3');
+    var stoneSound = new Audio('./sounds/stone.mp3');
+    var woodSound = new Audio('./sounds/wood.mp3');
+    var groundSound = new Audio('./sounds/ground.mp3');
+    var cloudSound = new Audio('./sounds/breath.mp3');
+
+    $("#toolContainer0").on("click", function () {
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
@@ -131,16 +138,17 @@ minecraftGame.tileSys = function () {
                 $(this).removeClass('divLeaf');
                 $('.lastTile').removeClass('divStone divWood divCloud divGround divGrass')
                 $('.lastTile').addClass('divLeaf')
+                breakSound.play();
                 tileType = 3;
             }
         })
         $('.divWood').on("click", function () {
-
             if (counter === 1) {
                 $(this).addClass('divEmpty');
                 $(this).removeClass('divWood');
                 $('.lastTile').removeClass('divStone divLeaf divCloud divGround divGrass')
                 $('.lastTile').addClass('divWood')
+                breakSound.play();
                 tileType = 2;
             }
         })
@@ -159,6 +167,7 @@ minecraftGame.tileSys = function () {
                 $(this).removeClass('divStone');
                 $('.lastTile').removeClass('divLeaf divWood divCloud divGround divGrass');
                 $('.lastTile').addClass('divStone');
+                breakSound.play();
                 tileType = 5;
             }
         })
@@ -177,6 +186,7 @@ minecraftGame.tileSys = function () {
                 $(this).removeClass('divGrass');
                 $('.lastTile').removeClass('divLeaf divWood divCloud divGround divStone')
                 $('.lastTile').addClass('divGrass')
+                breakSound.play();
                 tileType = 6;
             }
         })
@@ -186,6 +196,7 @@ minecraftGame.tileSys = function () {
                 $(this).removeClass('divGround');
                 $('.lastTile').removeClass('divStone divLeaf divCloud divWood divGrass')
                 $('.lastTile').addClass('divGround')
+                breakSound.play();
                 tileType = 1;
             }
         })
@@ -204,8 +215,8 @@ minecraftGame.tileSys = function () {
                 $(this).removeClass('divCloud');
                 $('.lastTile').removeClass('divLeaf divWood divGround divGrass divStone');
                 $('.lastTile').addClass('divCloud');
+                cloudSound.play();
                 tileType = 7;
-
             }
         })
     })
@@ -235,20 +246,23 @@ minecraftGame.tileSys = function () {
 
 
                 // We want to put a new element in the matrix, we want to do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
-                if (counter == 5) { 
+                if (counter == 5) {
                     if (tileType == 1 && list[index + 66].className == 'divGround') {
                         $(this).addClass('divGround');
                         $(this).removeClass('divLeaf divWood divStone divCloud divGrass divEmpty');
+                        groundSound.play();
                     } if (tileType == 2 && (list[index + 66].className == 'divGrass' || list[index + 66].className == 'divWood')) {
                         $(this).addClass('divWood');
                         $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
+                        grassWood.play();
                     } if (tileType == 3 && (list[index + 66].className == 'divWood' || list[index + 1].className == 'divLeaf'|| list[index-66].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 66].className == 'divLeaf')) {
                         $(this).addClass('divLeaf');
                         $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
+                        grassSound.play();
                     } if (tileType == 5 && (list[index + 66].className == 'divGrass' || list[index + 66].className == 'divStone')) {
                         $(this).addClass('divStone');
                         $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
-
+                        stoneSound.play();
                      if (tileType == 5 && list[indexMistery + 66].className == 'divStone') { //Whenever a stone is created behind the mystery tile, then the mystery tile shows up.
                             $(".divNum10").addClass('victoryTile');
                             $(".divNum10").removeClass('.divNum10');
@@ -261,9 +275,11 @@ minecraftGame.tileSys = function () {
                     } if (tileType == 6 && list[index + 66].className == 'divGround') {
                         $(this).addClass('divGrass');
                         $(this).removeClass('divWood divStone divLeaf divCloud divGround divEmpty');
+                        grassSound.play();
                     } if (tileType == 7 && list[index].className == 'divEmpty') {
                         $(this).addClass('divCloud');
                         $(this).removeClass('divWood divStone divLeaf divGround divGrass divEmpty');
+                        cloudSound.play();
                     }
                 }
             })
