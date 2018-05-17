@@ -124,18 +124,18 @@ body{
     background-image:url("https://static.planetminecraft.com/files/resource_media/screenshot/1812/wiki-background-1521953617_lrg.jpg");
 }
 
-.divNum10{
+.divMinione{
     background-color:lightblue;
 }
 
-.victoryTile{ /*--changer par une tile minecraft de diamant */
-    background-image:url("https://scmedia.itsfogo.com/$-$/7592d4e1756e47449616d0dbcae116e0.png");
+.victoryTile{
+    background-image:url("https://i.pinimg.com/originals/a5/32/fa/a532fa36bb35a7f5557957b3aa45035c.png");
     background-repeat: no-repeat;
     background-color: lightblue;
     background-size: contain;
 }
 
-.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divNum10, .victoryTile{
+.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divMinione, .victoryTile{
     padding: 25px;
     background-size: contain;
     transition: all 0.5s linear;
@@ -145,7 +145,7 @@ body{
   border: solid 2px blue;
   padding: 23px;
 }
-.divNum10:hover{
+.divMinione{
     border: solid 2px red;
     padding: 23px;
   }
