@@ -111,6 +111,32 @@ var indexMistery;
 
 minecraftGame.tileSys = function () {
 
+    $("#toTheRight").on("click", function () {
+        that = this;
+        list = document.querySelectorAll('div');
+        for (var k = 0; k < list.length; k++) {
+            if (list[that+1].className == "divEmpty") {
+                list[that].classList.remove("divMinion");
+                list[that].classList.add("divEmpty");
+                list[that+1].classList.add("divMinion");
+                list[that+1].classList.remove("divEmpty");
+            }
+        }    
+    });
+
+    $("#toTheLeft").on("click", function () {
+        that = this;
+        list = document.querySelectorAll('div');
+        for (var k = 0; k < list.length; k++) {
+            if (list[that-1].className == "divEmpty") {
+                list[that].classList.remove("divMinion");
+                list[that].classList.add("divEmpty");
+                list[that-1].classList.add("divMinion");
+                list[that-1].classList.remove("divEmpty");
+            }
+        }    
+    });
+
     $("#toolContainer0").on("click", function () {  
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
