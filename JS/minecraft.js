@@ -35,7 +35,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
         cols: 66,
         rows: 15,
         tiles: [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -89,9 +89,9 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
                 $('#bigBox').append(divGrass);
 
             } else if (tile == 7) {
-                var divNum10 = $("<div/>");
-                divNum10.addClass('divNum10');
-                $('#bigBox').append(divNum10);
+                var divMinione = $("<div/>");
+                divMinione.addClass('divMinione');
+                $('#bigBox').append(divMinione);
             } else if (tile == 8) {
                 var divMinion = $("<div/>");
                 divMinion.addClass('divMinion');
@@ -103,7 +103,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
     listMistery = document.querySelectorAll(".divEmpty");
     random = Math.floor(Math.random() * listMistery.length);
     listMistery[random].classList.remove("divEmpty");
-    listMistery[random].classList.add("divNum10");
+    listMistery[random].classList.add("divMinione");
 
 };
 var list;
@@ -276,7 +276,7 @@ minecraftGame.tileSys = function () {
                     if (that == list[k]) {
                         index = k;
                     }
-                    if (list[k].className == "divNum10") {
+                    if (list[k].className == "divMinione") {
                         indexMistery = k;
                     }
                 }
@@ -299,13 +299,13 @@ minecraftGame.tileSys = function () {
                         $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
                         stoneSound.play();
                         if (tileType == 5 && list[indexMistery + 66].className == 'divStone') { //Whenever a stone is created behind the mystery tile, then the mystery tile shows up.
-                            $(".divNum10").addClass('victoryTile');
-                            $(".divNum10").removeClass('.divNum10');
+                            $(".divMinione").addClass('victoryTile');
+                            $(".divMinione").removeClass('.divMinione');
                             $(".victoryTile").on("click", function () {
                                 var finalSong = new Audio('victorySong.mp3');
                                 $('#fireModal').modal('show');
                                 finalSong.play();
-                                $(this).removeClass("divNum10");
+                                $(this).removeClass("divMinione");
                                 $('#resetButton').click(function(){
                                   $('#bigBox').empty();
                                   minecraftGame.init();
@@ -317,9 +317,6 @@ minecraftGame.tileSys = function () {
                         $(this).addClass('divGrass');
                         $(this).removeClass('divWood divStone divLeaf divCloud divGround divEmpty');
                         grassSound.play();
-                    } if (tileType == 7 && list[index].className == 'divEmpty') {
-                        $(this).addClass('divCloud');
-                        $(this).removeClass('divWood divStone divLeaf divGround divGrass divEmpty');
                     }
                 }
             })
