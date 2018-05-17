@@ -13,8 +13,8 @@ $(window).on('load', function () {
         $('.loading').css('display', 'flex')
 
         setTimeout(function () {
-            $('.sideBar').css('display', 'flex')
-            $('.loading').css('display', 'none')
+            $('.sideBar').css('display', 'flex');
+            $('.loading').css('display', 'none');
             minecraftGame.init();
         }, 2000);
     });
@@ -52,7 +52,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0],
-            [0, 0, 0, 5, 0, 0, 0, 5, 5, 0, 5, 0, 0, 0, 1, 2, 1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 0, 0, 0, 0, 5, 5, 0, 0, 0],
+            [0, 0, 0, 5, 0, 0, 0, 5, 5, 0, 5, 0, 0, 0, 1, 2, 1, 0, 5, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 0, 0, 0, 0, 5, 5, 0, 0, 0],
             [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 1, 1, 1, 1, 1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2, 2, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -99,6 +99,10 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
                 var divNum10 = $("<div/>");
                 divNum10.addClass('divNum10');
                 $('#bigBox').append(divNum10);
+            } else if (tile == 8) {
+                var divMinion = $("<div/>");
+                divMinion.addClass('divMinion');
+                $('#bigBox').append(divMinion);
             }
         }
     }
@@ -109,11 +113,12 @@ var counter = 0;
 var tileType = 0;
 var index;
 var that;
+var indexMistery;
 
 
 minecraftGame.tileSys = function () {
 
-    $("#toolContainer0").on("click", function () {
+    $("#toolContainer0").on("click", function () {  
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");
         $("#toolContainer1").removeClass("selectedTool");
@@ -223,11 +228,14 @@ minecraftGame.tileSys = function () {
                     if (that == list[k]) {
                         index = k;
                     }
+                    if (list[k].className == "divNum10"){
+                        indexMistery = k;
+                    }
                 }
 
 
-                // We want to put a new element in the matrix, we want do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
-                if (counter == 5) { //fonction turfu
+                // We want to put a new element in the matrix, we want to do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
+                if (counter == 5) { 
                     if (tileType == 1 && list[index + 66].className == 'divGround') {
                         $(this).addClass('divGround');
                         $(this).removeClass('divLeaf divWood divStone divCloud divGrass divEmpty');
@@ -241,13 +249,13 @@ minecraftGame.tileSys = function () {
                         $(this).addClass('divStone');
                         $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
 
-                     if (tileType == 5 && list[45].className == 'divStone') { //VERIFIER QUE YA UNE STONE SOUS LA CASE SECRETE + ONCLICK SI TU CLICK LA CASE SECRETE C LA WIN
+                     if (tileType == 5 && list[indexMistery + 66].className == 'divStone') { //Whenever a stone is created behind the mystery tile, then the mystery tile shows up.
                             $(".divNum10").addClass('victoryTile');
                             $(".divNum10").removeClass('.divNum10');
                             $(".victoryTile").on("click", function(){
-                                var finalSong = new Audio('victorySong.mp3'); // OK C DAR MAINTENANT FAUT AJOUTER LA VAR COUNTER ET VAR TILETYPE POUR POUVOIR RECUPERER LA CASE SECRETE ET POUVOIR LA POSER UN PEU PARTOUT
+                                var finalSong = new Audio('victorySong.mp3');
                                 finalSong.play();
-                                $(this).removeClass("divNum10"); // surement supprimable
+                                $(this).removeClass("divNum10");
                             });
                     }
                     } if (tileType == 6 && list[index + 66].className == 'divGround') {
