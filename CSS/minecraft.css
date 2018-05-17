@@ -71,6 +71,14 @@ body{
     background-color:lightblue;
 }
 
+.divMinion {
+    background-image: url("http://2.bp.blogspot.com/-Faa8PlY3x1Y/VYALU4nOQHI/AAAAAAAAP4Y/nGdP_fhF4l8/s640/minion-pixel-art-template.png");
+    background-color: lightblue;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
 .divGround {
     background-image: url("https://i.pinimg.com/originals/e7/c6/ad/e7c6ad6df57f796e1e6a8301507ac3cf.png");
 }
