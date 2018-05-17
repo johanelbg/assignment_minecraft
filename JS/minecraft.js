@@ -306,17 +306,23 @@ minecraftGame.tileSys = function () {
                             $(".divMinione").addClass('victoryTile');
                             $(".divMinione").removeClass('.divMinione');
                             $(".victoryTile").on("click", function () {
+                              console.log(999);
                                 var finalSong = new Audio('victorySong.mp3');
-                                $('#fireModal').modal('show');
+                                $('#finalModal').modal('show');
                                 finalSong.play();
-                                $(this).removeClass("divMinione");
+
                                 $('#resetButton').click(function(){
+                                  finalSong.pause();
                                   $('#bigBox').empty();
                                   minecraftGame.init();
-                                  $('#fireModal').modal('hide');
-                                })
+                                  $('#finalModal').modal('hide')
+                                });
                             });
                         }
+
+
+
+
                     } if (tileType == 6 && list[index + 66].className == 'divGround') {
                         $(this).addClass('divGrass');
                         $(this).removeClass('divWood divStone divLeaf divCloud divGround divEmpty');

@@ -32,9 +32,10 @@ body{
   background: url('https://wallpapercave.com/wp/QVjcxmp.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  pointer-events: none;
 }
 
-.modal-content{
+.modalStyle{
     height: 17em;
     border-radius: 0;
     box-shadow: 5px 10px green;
@@ -65,9 +66,14 @@ body{
     display: block;
     margin: 3%;
 }
+#gotItButton{
+  border-radius: 0;
+  background-color: blue;
+  box-shadow: 5px 5px green;
+}
 
 #startButton{
-  right: -34%;
+  right: -31%;
 }
 
 #instrucButton{
@@ -78,6 +84,10 @@ body{
   background: url('http://www.villreal.com/img199/ebnyuzivykcquopykedr.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.modal-footer{
+  border: none;
 }
 
 .modal-header{
@@ -214,13 +224,14 @@ body{
 
 /*--------------------------------------------------------------Final Modal-----------------------------------------------------------------*/
 
-#fireModal{
+#finalModal{
   background: url('http://img-new.cgtrader.com/uploads/user/30851/forum_images/593adcab-8593-4ed0-9095-8119b0a123a1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  pointer-events: none;
 }
 
-#fireModal h1{
+#finalModal h1{
   text-align: center;
 }
 
@@ -228,4 +239,13 @@ body{
   border-radius: 0;
   background-color: blue;
   box-shadow: 5px 5px green;
+}
+
+.modal-dialog{
+  text-align: center;
+}
+
+.modalFinal{
+  background: transparent;
+  border: none;
 }
