@@ -129,40 +129,47 @@ minecraftGame.tileSys = function () {
     var cloudSound = new Audio('./sounds/breath.mp3');
 
     $("#toTheRight").on("click", function () {
-
         list = document.querySelectorAll('div');
         for (var k = 0; k < list.length; k++) {
-
             if (list[k].className == "divMinion") {
                 that = k;
-
-                if (list[that+1].className == "divEmpty") {
+                if (list[that+1].className == "divEmpty" && list[that+67].className !== "divEmpty" ) {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
 
                     list[that+1].classList.add("divMinion");
                     list[that+1].classList.remove("divEmpty");
-
                 }
                 break;
             }
-
         }
     });
 
     $("#toTheLeft").on("click", function () {
-
         list = document.querySelectorAll('div');
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-
-                if (list[that-1].className == "divEmpty") {
+                if (list[that-1].className == "divEmpty" && list[that+65].className !== "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
-
                     list[that-1].classList.add("divMinion");
                     list[that-1].classList.remove("divEmpty");
+                }
+            }
+        }
+    });
+
+    $("#toTheTopLeft").on("click", function () {
+        list = document.querySelectorAll('div');
+        for (var k = 0; k < list.length; k++) {
+            if (list[k].className == "divMinion") {
+                that = k;
+                if (list[that-1].className == "divStone" && list[that-67].className == "divEmpty") {
+                    list[that].classList.add("divEmpty");
+                    list[that].classList.remove("divMinion");
+                    list[that-67].classList.add("divMinion");
+                    list[that-67].classList.remove("divEmpty");
                 }
             }
         }
