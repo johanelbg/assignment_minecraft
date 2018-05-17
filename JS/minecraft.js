@@ -363,7 +363,7 @@ minecraftGame.tileSys = function () {
                         $(this).removeClass('divWood divStone divLeaf divGrass divGround divEmpty');
                         cloudSound.play();
                     }
-                    if (tileType == 5 && (list[index + 66].className == 'divGrass' || list[index + 66].className == 'divStone')) {
+                    if (tileType == 5 && list[index].className == 'divEmpty' && (list[index + 66].className == 'divGrass' || list[index + 66].className == 'divStone')) {
                         $(this).addClass('divStone');
                         $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
                         stoneSound.play();
