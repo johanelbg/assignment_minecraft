@@ -124,7 +124,7 @@ body{
     background-image:url("https://static.planetminecraft.com/files/resource_media/screenshot/1812/wiki-background-1521953617_lrg.jpg");
 }
 
-.divNum10{
+.divMinione{
     background-color:lightblue;
 }
 
@@ -135,7 +135,7 @@ body{
     background-size: contain;
 }
 
-.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divNum10, .victoryTile{
+.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divMinione, .victoryTile{
     padding: 25px;
     background-size: contain;
     transition: all 0.5s linear;
@@ -145,7 +145,7 @@ body{
   border: solid 2px blue;
   padding: 23px;
 }
-.divNum10{
+.divMinione{
     border: solid 2px red;
     padding: 23px;
   }
