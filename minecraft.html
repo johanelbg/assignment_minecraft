@@ -20,7 +20,7 @@
 
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
           <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+            <div class="modal-content modalStyle">
               <h5 class="modal-title" id="exampleModalLongTitle">Welcome to Minecraft 2D</h5>
             <div class="modal-body">
              <p>Welcome to a minecraft-like game in 2D</p>
@@ -35,7 +35,7 @@
 
         <div class="modal fade" id="instrucModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
           <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content modalStyle">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Instructions</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -44,15 +44,22 @@
               </div>
               <div class="modal-body">
               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="gotItButton">Got It !</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="modal fade" id="fireModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal fade" id="finalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
           <div class="modal-dialog" role="document">
+            <div class="modal-content modalFinal">
+            <div class="modal-body">
             <h1>Congrats you're just married Sanda !</h1>
-            <button type="button" class="btn btn-primary btn-lg" id="resetButton">Relauch</button>
+            <button type="button" class="btn btn-primary btn-lg" id="resetButton">Relaunch</button>
+            </div>
           </div>
+        </div>
         </div>
 
       <div class="sideBar" id="sideBar"> <!--A Ajouter : tag <p> avec la descriptions des outils. Blanc, 10px. 1 tag pour chaque div dans cette SideBar-->
@@ -66,7 +73,7 @@
             <button type='button' id="toTheRight"></button>
           </div>
           <button type='button' id="toTheBottom"></button>
-          
+
           <div class="lastTile" id="tileCreator"></div>
       </div>
 
