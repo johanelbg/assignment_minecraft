@@ -128,8 +128,8 @@ body{
     background-color:lightblue;
 }
 
-.victoryTile{ /*--changer par une tile minecraft de diamant */
-    background-image:url("https://scmedia.itsfogo.com/$-$/7592d4e1756e47449616d0dbcae116e0.png");
+.victoryTile{
+    background-image:url("https://i.pinimg.com/originals/a5/32/fa/a532fa36bb35a7f5557957b3aa45035c.png");
     background-repeat: no-repeat;
     background-color: lightblue;
     background-size: contain;
