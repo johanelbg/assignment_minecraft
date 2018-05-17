@@ -16,9 +16,8 @@ $(window).on('load', function () {
     });
 
     $('#instrucButton').click(function () {
-        $('#instrucModal').modal('show');
+        $('#exampleModalLong').modal('show');
     })
-
 });
 
 var minecraftGame = {};
@@ -94,7 +93,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
                 var divMinion = $("<div/>");
                 divMinion.addClass('divMinion');
                 $('#bigBox').append(divMinion);
-            }else if (tile == 9) {
+            } else if (tile == 9) {
                 var divNotInUse = $("<div/>");
                 divNotInUse.addClass('divNotInUse');
                 $('#bigBox').append(divNotInUse);
@@ -116,6 +115,8 @@ var that;
 var indexMistery;
 var listMistery;
 var random;
+var listVictory;
+var indexVictory;
 
 minecraftGame.tileSys = function () {
 
@@ -131,16 +132,17 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that+1].className == "divEmpty" && list[that+67].className !== "divEmpty" ) {
+                if (list[that + 1].className == "divEmpty" && list[that + 67].className !== "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
 
-                    list[that+1].classList.add("divMinion");
-                    list[that+1].classList.remove("divEmpty");
+                    list[that + 1].classList.add("divMinion");
+                    list[that + 1].classList.remove("divEmpty");
                 }
                 break;
             }
         }
+        victory();
     });
 
     $("#toTheLeft").on("click", function () {
@@ -148,14 +150,15 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that-1].className == "divEmpty" && list[that+65].className !== "divEmpty") {
+                if (list[that - 1].className == "divEmpty" && list[that + 65].className !== "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
-                    list[that-1].classList.add("divMinion");
-                    list[that-1].classList.remove("divEmpty");
+                    list[that - 1].classList.add("divMinion");
+                    list[that - 1].classList.remove("divEmpty");
                 }
             }
         }
+        victory();
     });
 
     $("#toTheTopLeft").on("click", function () {
@@ -163,14 +166,65 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that-1].className == "divStone" && list[that-67].className == "divEmpty") {
+                if (list[that - 1].className == "divStone" && list[that - 67].className == "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
-                    list[that-67].classList.add("divMinion");
-                    list[that-67].classList.remove("divEmpty");
+                    list[that - 67].classList.add("divMinion");
+                    list[that - 67].classList.remove("divEmpty");
                 }
             }
         }
+        victory();
+    });
+
+    $("#toTheTopRight").on("click", function () {
+        list = document.querySelectorAll('div');
+        for (var k = 0; k < list.length; k++) {
+            if (list[k].className == "divMinion") {
+                that = k;
+                if (list[that + 1].className == "divStone" && list[that - 65].className == "divEmpty") {
+                    list[that].classList.add("divEmpty");
+                    list[that].classList.remove("divMinion");
+                    list[that - 65].classList.add("divMinion");
+                    list[that - 65].classList.remove("divEmpty");
+                }
+                break;
+            }
+        }
+        victory();
+    });
+
+    $("#toTheBottomRight").on("click", function () {
+        list = document.querySelectorAll('div');
+        for (var k = 0; k < list.length; k++) {
+            if (list[k].className == "divMinion") {
+                that = k;
+                if (list[that + 1].className == "divEmpty" && list[that + 67].className == "divEmpty" && (list[that + 133].className == "divStone" || list[that + 133].className == "divGrass")) {
+                    list[that].classList.add("divEmpty");
+                    list[that].classList.remove("divMinion");
+                    list[that + 67].classList.add("divMinion");
+                    list[that + 67].classList.remove("divEmpty");
+                }
+                break;
+            }
+        }
+        victory();
+    });
+
+    $("#toTheBottomLeft").on("click", function () {
+        list = document.querySelectorAll('div');
+        for (var k = 0; k < list.length; k++) {
+            if (list[k].className == "divMinion") {
+                that = k;
+                if (list[that - 1].className == "divEmpty" && list[that + 65].className == "divEmpty" && (list[that + 131].className == "divStone" || list[that + 131].className == "divGrass")) {
+                    list[that].classList.add("divEmpty");
+                    list[that].classList.remove("divMinion");
+                    list[that + 65].classList.add("divMinion");
+                    list[that + 65].classList.remove("divEmpty");
+                }
+            }
+        }
+        victory();
     });
 
     $("#toolContainer0").on("click", function () {
@@ -303,28 +357,14 @@ minecraftGame.tileSys = function () {
                         $(this).addClass('divLeaf');
                         $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
                         grassSound.play();
-                    } if (tileType == 5 && (list[index + 66].className == 'divGrass' || list[index + 66].className == 'divStone')) {
+                    }
+                    if (tileType == 5 && (list[index + 66].className == 'divGrass' || list[index + 66].className == 'divStone')) {
                         $(this).addClass('divStone');
                         $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
                         stoneSound.play();
-                        if (list[indexMistery + 1].className == 'divMinion' || list[indexMistery - 1].className == 'divMinion') { //Whenever a stone is created behind the mystery tile, then the mystery tile shows up.
-                            $(".divMinione").addClass('victoryTile');
-                            $(".divMinione").removeClass('.divMinione');
-                            $(".victoryTile").on("click", function () {
-                                var finalSong = new Audio('victorySong.mp3');
-                                $('#finalModal').modal('show');
-                                finalSong.play();
+                    }
 
-                                $('#resetButton').click(function(){
-                                  finalSong.pause();
-                                  $('#bigBox').empty();
-                                  minecraftGame.init();
-                                  $('#finalModal').modal('hide')
-                                });
-                            });
-                        }
-
-                    } if (tileType == 6 && list[index + 66].className == 'divGround') {
+                    if (tileType == 6 && list[index + 66].className == 'divGround') {
                         $(this).addClass('divGrass');
                         $(this).removeClass('divWood divStone divLeaf divCloud divGround divEmpty');
                         grassSound.play();
@@ -332,5 +372,39 @@ minecraftGame.tileSys = function () {
                 }
             })
         }
-    })
+    });
+
+
+
 };
+
+
+function victory() {
+
+
+listVictory = document.querySelectorAll('div');
+for (var k = 0; k < listVictory.length; k++) {
+
+    if (listVictory[k].className == "divMinione") {
+        indexVictory = k;
+    }
+}
+if (listVictory[indexVictory + 1].className == 'divMinion' || listVictory[indexVictory - 1].className == 'divMinion') { //Whenever a stone is created behind the mystery tile, then the mystery tile shows up.
+    $(".divMinione").addClass('victoryTile');
+    $(".divMinione").removeClass('.divMinione');
+    $(".victoryTile").on("click", function () {
+
+        var finalSong = new Audio('victorySong.mp3');
+        $('#finalModal').modal('show');
+        finalSong.play();
+
+        $('#resetButton').click(function () {
+            finalSong.pause();
+            $('#bigBox').empty();
+            minecraftGame.init();
+            $('#finalModal').modal('hide')
+        });
+    });
+}
+
+}
