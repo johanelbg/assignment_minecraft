@@ -201,7 +201,7 @@ body{
 }
 
 #toolContainer3{
-  background-image:  url('https://s3.amazonaws.com/kandipatternspatterns/characters/11458_Bob_Marley_2.png');
+  background-image:url('https://s3.amazonaws.com/kandipatternspatterns/characters/11458_Bob_Marley_2.png');
 }
 
 .lastTile{
@@ -221,7 +221,40 @@ body{
 .selectedTileCreator{
     border: 7px solid yellowgreen;
 }
-
+#toTheTopLeft{
+    padding:3vh;
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/202798/long-arrow-up-left.png');
+    background-size: contain;
+}
+#toTheTopRight{
+    padding:3vh;
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/202800/long-arrow-up-right.png');
+    background-size: contain;
+}
+#toTheLeft{
+    padding:3vh;
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/202797/long-arrow-left.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#toTheRight{
+    padding:3vh;
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/202801/long-arrow-right.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#toTheBottomLeft{
+    padding:3vh;
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/202805/long-arrow-down-left.png');
+    background-size: contain;
+}
+#toTheBottomRight{
+    padding:3vh;
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/202803/long-arrow-down-right.png');
+    background-size: contain;
+}
 /*--------------------------------------------------------------Final Modal-----------------------------------------------------------------*/
 
 #finalModal{

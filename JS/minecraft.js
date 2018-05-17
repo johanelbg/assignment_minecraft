@@ -1,5 +1,3 @@
-// !!!!!!! HOW TO DISCOVER MYSTERY TILE : Faut empiler de la pierre sur une colonne bien précise, jusqu'a l'avant derniere case. Ca affichera la case mystere.
-//// La colonne c'est le troisieme bloc de pierre en partant de la gauche (le petit au milieu)
 
 //display modal on loading
 $(window).on('load', function () {
@@ -309,11 +307,10 @@ minecraftGame.tileSys = function () {
                         $(this).addClass('divStone');
                         $(this).removeClass('divWood divGround divLeaf divCloud divGrass divEmpty');
                         stoneSound.play();
-                        if (list[indexMistery + 1].className == 'divMinione' || list[indexMistery - 1].className == 'divMinione') { //Whenever a stone is created behind the mystery tile, then the mystery tile shows up.
+                        if (list[indexMistery + 1].className == 'divMinion' || list[indexMistery - 1].className == 'divMinion') { //Whenever a stone is created behind the mystery tile, then the mystery tile shows up.
                             $(".divMinione").addClass('victoryTile');
                             $(".divMinione").removeClass('.divMinione');
                             $(".victoryTile").on("click", function () {
-                              console.log(999);
                                 var finalSong = new Audio('victorySong.mp3');
                                 $('#finalModal').modal('show');
                                 finalSong.play();
@@ -326,9 +323,6 @@ minecraftGame.tileSys = function () {
                                 });
                             });
                         }
-
-
-
 
                     } if (tileType == 6 && list[index + 66].className == 'divGround') {
                         $(this).addClass('divGrass');
