@@ -135,7 +135,7 @@ body{
     background-size: contain;
 }
 
-.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divMinione, .victoryTile{
+.divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divMinione, .victoryTile, .divNotInUse{
     padding: 25px;
     background-size: contain;
     transition: all 0.5s linear;
@@ -145,6 +145,11 @@ body{
   border: solid 2px blue;
   padding: 23px;
 }
+
+.divNotInUse{
+    background-color: lightblue;
+  }
+
 .divMinione{
     border: solid 2px red;
     padding: 23px;
@@ -158,7 +163,7 @@ body{
     justify-content: space-around;
     right:0;
     background-color:black;
-    padding: 0 10vh;
+    padding: 0 4vh;
     height : 100vh;
     display: none;
 }
