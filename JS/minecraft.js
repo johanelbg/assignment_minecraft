@@ -4,11 +4,8 @@
 
 
 //display modal on loading
-
-
 $(window).on('load', function () {
-    $('#myModal').modal('show')
-    $('.loading').css('display', 'none')
+    $('#myModal').modal('show');
 
     //charging the page
     $('#startButton').click(function () {
@@ -19,10 +16,20 @@ $(window).on('load', function () {
             $('.sideBar').css('display', 'flex')
             $('.loading').css('display', 'none')
             minecraftGame.init();
-        }, 3000);
+        }, 2000);
     });
 
+    $('#instrucButton').click(function(){
+      $('#instrucModal').modal('show');
+    })
+
 });
+
+
+
+
+
+
 var minecraftGame = {};
 
 minecraftGame.init = function () {
