@@ -2,6 +2,7 @@
 //// La colonne c'est le troisieme bloc de pierre en partant de la gauche (le petit au milieu)
 
 //display modal on loading
+
 $(window).on('load', function () {
     $('#myModal').modal('show');
 
