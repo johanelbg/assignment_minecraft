@@ -319,7 +319,7 @@ minecraftGame.tileSys = function () {
                 $('.lastTile').removeClass('divLeaf divWood divGround divGrass divStone');
                 $('.lastTile').addClass('divCloud');
                 cloudSound.play();
-                tileType = 7;
+                tileType = 4;
             }
         })
     })
@@ -331,7 +331,7 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
 
-        if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 5 || tileType == 6 || tileType == 7) {
+        if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 4 || tileType == 5 || tileType == 6 || tileType == 7) {
             $('.divEmpty').on("click", function () {
 
                 that = this; //Here we want to find the index of the div we want to put the element in
@@ -358,6 +358,10 @@ minecraftGame.tileSys = function () {
                         $(this).addClass('divLeaf');
                         $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
                         grassSound.play();
+                    }if (tileType == 4 && list[index].className == 'divEmpty') {
+                        $(this).addClass('divCloud');
+                        $(this).removeClass('divWood divStone divLeaf divGrass divGround divEmpty');
+                        cloudSound.play();
                     }
                     if (tileType == 5 && (list[index + 66].className == 'divGrass' || list[index + 66].className == 'divStone')) {
                         $(this).addClass('divStone');
