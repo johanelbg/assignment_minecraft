@@ -218,7 +218,7 @@ minecraftGame.tileSys = function () {
                 }
 
 
-                // We want to put a new element in the matrix, we want do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
+                // We want to put a new element in the matrix, we want to do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
                 if (counter == 5) { //fonction turfu
                     if (tileType == 1 && list[index + 22].className == 'divGround') {
                         $(this).addClass('divGround');
