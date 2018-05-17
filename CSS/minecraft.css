@@ -112,6 +112,10 @@ body{
   border: solid 2px blue;
   padding: 23px;
 }
+.divNum10:hover{
+    border: solid 2px red;
+    padding: 23px;
+  }
 
 /*--------------------------------------------------------------Side bar-----------------------------------------------------------------*/
 .sideBar{
