@@ -8,6 +8,7 @@ body{
   height: 100vmax;
   width: 100vmax;
   background-color: lightgreen;
+  display: none;
 }
 
 .loader {
@@ -26,7 +27,7 @@ body{
   100% { transform: rotate(360deg); }
 }
 
-/*---------------------------------------------------------------Modal---------------------------------------------------------------*/
+/*---------------------------------------------------------------Modals---------------------------------------------------------------*/
 #myModal{
   background: url('https://wallpapercave.com/wp/QVjcxmp.jpg');
   background-size: cover;
@@ -34,7 +35,7 @@ body{
 }
 
 .modal-content{
-    height: 20em;
+    height: 17em;
     border-radius: 0;
     box-shadow: 5px 10px green;
     text-align: center;
@@ -44,6 +45,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     color: white;
+    align-items: center;
 }
 
 .modal-title{
@@ -51,16 +53,36 @@ body{
 }
 
 .modal-body{
-    top: 20%;
+    top: 14%;
     font-size: 1.5em;
 }
 
-#startButton{
+#startButton, #instrucButton{
+    position: relative;
     border-radius: 0;
     background-color: blue;
     box-shadow: 5px 5px green;
+    display: block;
+    margin: 3%;
 }
 
+#startButton{
+  right: -34%;
+}
+
+#instrucButton{
+  right: -38%;
+}
+
+#instrucModal{
+  background: url('http://www.villreal.com/img199/ebnyuzivykcquopykedr.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.modal-header{
+  border: none;
+}
 /*---------------------------------------------------------------Game box---------------------------------------------------------------*/
 #bigBox{
     display: inline-grid;
@@ -107,8 +129,10 @@ body{
 }
 
 .victoryTile{ /*--changer par une tile minecraft de diamant */
-    background-image:url("https://vignette.wikia.nocookie.net/articleinsanityrecreation/images/b/ba/Minecraft_Diamond_body.png/revision/latest?cb=20140628182144");
+    background-image:url("https://scmedia.itsfogo.com/$-$/7592d4e1756e47449616d0dbcae116e0.png");
     background-repeat: no-repeat;
+    background-color: lightblue;
+    background-size: contain;
 }
 
 .divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divNum10, .victoryTile{
