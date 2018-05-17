@@ -129,8 +129,10 @@ body{
 }
 
 .victoryTile{ /*--changer par une tile minecraft de diamant */
-    background-image:url("https://vignette.wikia.nocookie.net/articleinsanityrecreation/images/b/ba/Minecraft_Diamond_body.png/revision/latest?cb=20140628182144");
+    background-image:url("https://scmedia.itsfogo.com/$-$/7592d4e1756e47449616d0dbcae116e0.png");
     background-repeat: no-repeat;
+    background-color: lightblue;
+    background-size: contain;
 }
 
 .divEmpty, .divLeaf, .divGround, .divWood, .divCloud, .divStone, .divGrass, .divNum10, .victoryTile{

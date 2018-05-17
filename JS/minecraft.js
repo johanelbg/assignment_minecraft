@@ -1,8 +1,6 @@
 // !!!!!!! HOW TO DISCOVER MYSTERY TILE : Faut empiler de la pierre sur une colonne bien précise, jusqu'a l'avant derniere case. Ca affichera la case mystere.
 //// La colonne c'est le troisieme bloc de pierre en partant de la gauche (le petit au milieu)
 
-
-
 //display modal on loading
 $(window).on('load', function () {
     $('#myModal').modal('show');
@@ -223,7 +221,6 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
 
-
         if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 5 || tileType == 6 || tileType == 7) {
             $('.divEmpty').on("click", function () {
 
@@ -237,7 +234,6 @@ minecraftGame.tileSys = function () {
                         indexMistery = k;
                     }
                 }
-
                 // We want to put a new element in the matrix, we want to do it only if it is logical with our actual matrix. For example we don't want to user to be able to put a stone in the sky or above a tree
                 if (counter == 5) {
                     if (tileType == 1 && list[index + 66].className == 'divGround') {
@@ -272,7 +268,6 @@ minecraftGame.tileSys = function () {
                     } if (tileType == 7 && list[index].className == 'divEmpty') {
                         $(this).addClass('divCloud');
                         $(this).removeClass('divWood divStone divLeaf divGround divGrass divEmpty');
-                        cloudSound.play();
                     }
                 }
             })
