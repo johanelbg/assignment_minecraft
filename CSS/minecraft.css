@@ -206,3 +206,21 @@ body{
 .selectedTileCreator{
     border: 7px solid yellowgreen;
 }
+
+/*--------------------------------------------------------------Final Modal-----------------------------------------------------------------*/
+
+#fireModal{
+  background: url('http://img-new.cgtrader.com/uploads/user/30851/forum_images/593adcab-8593-4ed0-9095-8119b0a123a1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#fireModal h1{
+  text-align: center;
+}
+
+#resetButton{
+  border-radius: 0;
+  background-color: blue;
+  box-shadow: 5px 5px green;
+}

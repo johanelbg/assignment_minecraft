@@ -125,7 +125,7 @@ minecraftGame.tileSys = function () {
     var cloudSound = new Audio('./sounds/breath.mp3');
 
     $("#toTheRight").on("click", function () {
-        
+
         list = document.querySelectorAll('div');
         for (var k = 0; k < list.length; k++) {
 
@@ -138,16 +138,16 @@ minecraftGame.tileSys = function () {
 
                     list[that+1].classList.add("divMinion");
                     list[that+1].classList.remove("divEmpty");
-                
+
                 }
                 break;
             }
-            
+
         }
     });
 
     $("#toTheLeft").on("click", function () {
-        
+
         list = document.querySelectorAll('div');
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
@@ -303,8 +303,14 @@ minecraftGame.tileSys = function () {
                             $(".divNum10").removeClass('.divNum10');
                             $(".victoryTile").on("click", function () {
                                 var finalSong = new Audio('victorySong.mp3');
+                                $('#fireModal').modal('show');
                                 finalSong.play();
                                 $(this).removeClass("divNum10");
+                                $('#resetButton').click(function(){
+                                  $('#bigBox').empty();
+                                  minecraftGame.init();
+                                  $('#fireModal').modal('hide');
+                                })
                             });
                         }
                     } if (tileType == 6 && list[index + 66].className == 'divGround') {
