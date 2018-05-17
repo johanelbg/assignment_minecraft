@@ -4,7 +4,7 @@
 $(window).on('load', function () {
     $('#myModal').modal('show');
 
-    //charging the page
+    //loading the page...
     $('#startButton').click(function () {
         $('#myModal').modal('hide')
         $('.loading').css('display', 'flex')
