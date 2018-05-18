@@ -224,14 +224,14 @@ minecraftGame.tileSys = function () {
                     list[that + 65].classList.remove("divEmpty");
                 }
             }
-        }
+        }           //il manque des break
         victory();
     });
 
     $("#toolContainer0").on("click", function () {
         counter = 1;
-        $("#toolContainer0").addClass("selectedTool");
-        $("#toolContainer1").removeClass("selectedTool");
+        $("#toolContainer0").addClass("selectedTool");      //Add a red border to the tool the user selects inside the SideBar.
+        $("#toolContainer1").removeClass("selectedTool");    //Remove red border to the tool the user selects inside the SideBar.
         $("#toolContainer2").removeClass("selectedTool");
         $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
@@ -393,11 +393,11 @@ for (var k = 0; k < listVictory.length; k++) {
     if (listVictory[k].className == "divMinione") {
         indexVictory = k;
     }
-}
-if (listVictory[indexVictory + 1].className == 'divMinion' || listVictory[indexVictory - 1].className == 'divMinion') { //Whenever a stone is created behind the mystery tile, then the mystery tile shows up.
+} //Next if loop : Whenever the minion is located next to the the mystery tile, then the mystery tile shows up.
+if (listVictory[indexVictory + 1].className == 'divMinion' || listVictory[indexVictory - 1].className == 'divMinion') {
     $(".divMinione").addClass('victoryTile');
     $(".divMinione").removeClass('.divMinione');
-    $(".victoryTile").on("click", function () {
+    $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
 
         var finalSong = new Audio('victorySong.mp3');
         $('#finalModal').modal('show');
