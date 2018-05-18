@@ -127,6 +127,8 @@ minecraftGame.tileSys = function () {
     var woodSound = new Audio('./sounds/wood.mp3');
     var groundSound = new Audio('./sounds/ground.mp3');
     var cloudSound = new Audio('./sounds/breath.mp3');
+    var toolSound = new Audio('./sounds/tool.mp3');
+    var step = new Audio('./sounds/step.mp3');
 
     $("#toTheRight").on("click", function () {
         list = document.querySelectorAll('div');
@@ -139,6 +141,7 @@ minecraftGame.tileSys = function () {
 
                     list[that + 1].classList.add("divMinion");
                     list[that + 1].classList.remove("divEmpty");
+                    step.play();
                 }
                 break;
             }
@@ -156,7 +159,9 @@ minecraftGame.tileSys = function () {
                     list[that].classList.remove("divMinion");
                     list[that - 1].classList.add("divMinion");
                     list[that - 1].classList.remove("divEmpty");
+                    step.play();
                 }
+                break;
             }
         }
         victory();
@@ -167,12 +172,14 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that - 1].className == "divStone" && list[that - 67].className == "divEmpty") {
+                if ((list[that - 1].className == "divStone" || list[that - 1].className == "divGrass" || list[that - 1].className == "divGround") && list[that - 67].className == "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that - 67].classList.add("divMinion");
                     list[that - 67].classList.remove("divEmpty");
+                    step.play();
                 }
+                break;
             }
         }
         victory();
@@ -183,11 +190,12 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that + 1].className == "divStone" && list[that - 65].className == "divEmpty") {
+                if ((list[that + 1].className == "divStone" || list[that + 1].className == "divGrass" || list[that + 1].className == "divGround") && list[that - 65].className == "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that - 65].classList.add("divMinion");
                     list[that - 65].classList.remove("divEmpty");
+                    step.play();
                 }
                 break;
             }
@@ -200,11 +208,12 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that + 1].className == "divEmpty" && list[that + 67].className == "divEmpty" && (list[that + 133].className == "divStone" || list[that + 133].className == "divGrass")) {
+                if (list[that + 1].className == "divEmpty" && list[that + 67].className == "divEmpty" && (list[that + 133].className == "divStone" || list[that + 133].className == "divGrass" || list[that + 133].className == "divGround")) {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that + 67].classList.add("divMinion");
                     list[that + 67].classList.remove("divEmpty");
+                    step.play();
                 }
                 break;
             }
@@ -217,12 +226,14 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that - 1].className == "divEmpty" && list[that + 65].className == "divEmpty" && (list[that + 131].className == "divStone" || list[that + 131].className == "divGrass")) {
+                if (list[that - 1].className == "divEmpty" && list[that + 65].className == "divEmpty" && (list[that + 131].className == "divStone" || list[that + 131].className == "divGrass" || list[that + 131].className == "divGround")) {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that + 65].classList.add("divMinion");
                     list[that + 65].classList.remove("divEmpty");
+                    step.play();
                 }
+                break;
             }
         }           //il manque des break
         victory();
@@ -235,6 +246,7 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool");
         $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
+        toolSound.play();
         $('.divLeaf').on("click", function () {
             if (counter === 1) {
                 $(this).addClass('divEmpty');
@@ -264,6 +276,7 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool")
         $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
+        toolSound.play();
         $('.divStone').on("click", function () {
             if (counter === 2) {
                 $(this).addClass('divEmpty');
@@ -283,6 +296,7 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").addClass("selectedTool")
         $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
+        toolSound.play();
         $('.divGrass').on("click", function () {
             if (counter === 3) {
                 $(this).addClass('divEmpty');
@@ -312,6 +326,7 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool")
         $("#toolContainer3").addClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
+        toolSound.play();
         $('.divCloud').on("click", function () {
             if (counter === 4) {
                 $(this).addClass('divEmpty');
