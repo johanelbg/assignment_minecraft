@@ -157,6 +157,7 @@ minecraftGame.tileSys = function () {
                     list[that - 1].classList.add("divMinion");
                     list[that - 1].classList.remove("divEmpty");
                 }
+                break;
             }
         }
         victory();
@@ -167,12 +168,13 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that - 1].className == "divStone" && list[that - 67].className == "divEmpty") {
+                if ((list[that - 1].className == "divStone" || list[that - 1].className == "divGrass" || list[that - 1].className == "divGround") && list[that - 67].className == "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that - 67].classList.add("divMinion");
                     list[that - 67].classList.remove("divEmpty");
                 }
+                break;
             }
         }
         victory();
@@ -183,7 +185,7 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that + 1].className == "divStone" && list[that - 65].className == "divEmpty") {
+                if ((list[that + 1].className == "divStone" || list[that + 1].className == "divGrass" || list[that + 1].className == "divGround") && list[that - 65].className == "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that - 65].classList.add("divMinion");
@@ -200,13 +202,13 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that + 1].className == "divEmpty" && list[that + 67].className == "divEmpty" && (list[that + 133].className == "divStone" || list[that + 133].className == "divGrass")) {
+                if (list[that + 1].className == "divEmpty" && list[that + 67].className == "divEmpty" && (list[that + 133].className == "divStone" || list[that + 133].className == "divGrass" || list[that + 133].className == "divGround")) {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that + 67].classList.add("divMinion");
                     list[that + 67].classList.remove("divEmpty");
                 }
-                break;
+                break; 
             }
         }
         victory();
@@ -217,12 +219,13 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that - 1].className == "divEmpty" && list[that + 65].className == "divEmpty" && (list[that + 131].className == "divStone" || list[that + 131].className == "divGrass")) {
+                if (list[that - 1].className == "divEmpty" && list[that + 65].className == "divEmpty" && (list[that + 131].className == "divStone" || list[that + 131].className == "divGrass" || list[that + 131].className == "divGround")) {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that + 65].classList.add("divMinion");
                     list[that + 65].classList.remove("divEmpty");
                 }
+                break;
             }
         }
         victory();
