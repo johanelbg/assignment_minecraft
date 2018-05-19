@@ -161,6 +161,7 @@ minecraftGame.tileSys = function () {
                                     setTimeout(function () {
                                         $("#sideBar").css('display', 'none');
                                         $("#isLostBigBox").css('display', 'inline');
+                                        $("#tutorialBox").css('display','none')
                                     }, 2000);
                                 }, 500);
                             }, 500);
@@ -209,6 +210,7 @@ minecraftGame.tileSys = function () {
                                     setTimeout(function () {
                                         $("#isLostBigBox").css('display', 'inline');
                                         $("#sideBar").css('display', 'none');
+                                        $("#tutorialBox").css('display','none')
                                     }, 2000);
                                 }, 500);
                             }, 500);
@@ -486,7 +488,7 @@ function victory() {
         $(".divMinione").addClass('victoryTile');
         $(".divMinione").removeClass('.divMinione');
         $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
-
+            $("#tutorialBox").css('display','none');
             var finalSong = new Audio('victorySong.mp3');
             $('#finalModal').modal('show');
             finalSong.play();
