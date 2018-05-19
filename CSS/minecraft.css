@@ -275,6 +275,22 @@ body{
   border: none;
 }
 
+#tutorialBox{
+    display:none;
+    position:fixed;
+    text-align: center;
+    top:0;
+    left:0;
+    font-size:17px;
+    color:ghostwhite;
+    background-color: rgba(0,0,0,0.5);
+    padding:3vh;
+    border-radius:30px;
+    margin :15px 15px;
+  }
+
+
+
 /*--------------------------------------------------------------Final Modal-----------------------------------------------------------------*/
 
 #finalModal{
@@ -320,7 +336,7 @@ body{
     justify-content: space-around;
     color: rgba(0,0,0,0.8);
   }
-  #defeatText{
+#defeatText{
     background-color : rgba(0,0,0,0.4);
     font-size : 26px;
     font-weight: bold;

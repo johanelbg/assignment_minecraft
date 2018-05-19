@@ -129,6 +129,7 @@ minecraftGame.tileSys = function () {
     var toolSound = new Audio('./sounds/tool.mp3');
     var step = new Audio('./sounds/step.mp3');
     var lostSong = new Audio('./sounds/lostSong.mp3');
+    var isLostSong = new Audio('./sounds/isLostSong.mp3');
 
     $("#toTheRight").on("click", function () {
         list = document.querySelectorAll('div');
@@ -142,7 +143,6 @@ minecraftGame.tileSys = function () {
                     list[that + 1].classList.remove("divEmpty");
                     step.play();
                 } else if (list[that + 1].className == "divEmpty" && list[that + 133].className == "divEmpty" && list[that + 199].className == "divEmpty") {
-
                     setTimeout(function () {
                         lostSong.play();
                         list[that].classList.add("divEmpty");
@@ -156,6 +156,7 @@ minecraftGame.tileSys = function () {
                                 list[that + 199].classList.add("divMinion");
                                 list[that + 67].classList.remove("divMinion");
                                 setTimeout(function () {
+                                    isLostSong.play();
                                     $(".divMinion").css("background-image", "url('https://cdn.shopify.com/s/files/1/0822/1983/articles/tombstone-pixel-art-pixel-art-tombstone-halloween-rip-cemetery-pixel-8bit_large.png?v=1501229231')")
                                     setTimeout(function () {
                                         $("#sideBar").css('display', 'none');
@@ -202,6 +203,7 @@ minecraftGame.tileSys = function () {
                                 list[that + 197].classList.add("divMinion");
                                 list[that - 65].classList.remove("divMinion");
                                 setTimeout(function () {
+                                    isLostSong.play();
                                     $("#sideBar").css('display', 'none');
                                     $(".divMinion").css("background-image", "url('https://cdn.shopify.com/s/files/1/0822/1983/articles/tombstone-pixel-art-pixel-art-tombstone-halloween-rip-cemetery-pixel-8bit_large.png?v=1501229231')")
                                     setTimeout(function () {
@@ -292,13 +294,19 @@ minecraftGame.tileSys = function () {
         victory();
     });
 
+    $("#tutorialBox").on("mouseover", function(){ //hide the tutorial Div
+        $("#tutorialBox").css('display','none')
+    })
+
     $("#toolContainer0").on("click", function () {
         counter = 1;
         $("#toolContainer0").addClass("selectedTool");      //Add a red border to the tool the user selects inside the SideBar.
         $("#toolContainer1").removeClass("selectedTool");    //Remove red border to the tool the user selects inside the SideBar.
         $("#toolContainer2").removeClass("selectedTool");
-        $("#toolContainer3").removeClass('selectedTool')
-        $("#tileCreator").removeClass("selectedTileCreator")
+        $("#toolContainer3").removeClass('selectedTool');
+        $("#tileCreator").removeClass("selectedTileCreator");
+        $("#tutorialBox").css('display','inline');   // display a tutorial Div for each type of tool.
+        $("#tutorialBox").text("Harvest wood and leaf ! Then use the wood to create bridges between stone tiles");
         toolSound.play();
         $('.divLeaf').on("click", function () {
             if (counter === 1) {
@@ -324,11 +332,13 @@ minecraftGame.tileSys = function () {
 
     $("#toolContainer1").on("click", function () {
         counter = 2;
-        $("#toolContainer0").removeClass("selectedTool")
-        $("#toolContainer1").addClass("selectedTool")
-        $("#toolContainer2").removeClass("selectedTool")
-        $("#toolContainer3").removeClass('selectedTool')
-        $("#tileCreator").removeClass("selectedTileCreator")
+        $("#toolContainer0").removeClass("selectedTool");
+        $("#toolContainer1").addClass("selectedTool");
+        $("#toolContainer2").removeClass("selectedTool");
+        $("#toolContainer3").removeClass('selectedTool');
+        $("#tileCreator").removeClass("selectedTileCreator");
+        $("#tutorialBox").css('display','inline');  
+        $("#tutorialBox").text("Mine stones! Stack them one by one to walk up a stone stair ");
         toolSound.play();
         $('.divStone').on("click", function () {
             if (counter === 2) {
@@ -349,6 +359,8 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").addClass("selectedTool")
         $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
+        $("#tutorialBox").css('display','inline');  
+        $("#tutorialBox").text("Harvest ground and grass! Use them to build the surface ");
         toolSound.play();
         $('.divGrass').on("click", function () {
             if (counter === 3) {
@@ -379,6 +391,8 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool")
         $("#toolContainer3").addClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
+        $("#tutorialBox").css('display','inline');  
+        $("#tutorialBox").text("A cloud is standing in your way ? Call Bob !");
         toolSound.play();
         $('.divCloud').on("click", function () {
             if (counter === 4) {
@@ -398,7 +412,8 @@ minecraftGame.tileSys = function () {
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
-
+        $("#tutorialBox").css('display','inline');  
+        $("#tutorialBox").text("Build the world!");
         if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 4 || tileType == 5 || tileType == 6 || tileType == 7) {
             $('.divEmpty').on("click", function () {
 
