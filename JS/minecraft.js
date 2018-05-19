@@ -7,7 +7,7 @@ $(window).on('load', function () {
     //loading the page...
     $('#startButton').click(function () {
         $('#myModal').modal('hide')
-        $('.loading').css('display', 'flex')
+        $('.loading').css('display', 'flex')    
 
         setTimeout(function () {
             $('.sideBar').css('display', 'flex');
@@ -133,18 +133,32 @@ minecraftGame.tileSys = function () {
     $("#toTheRight").on("click", function () {
         list = document.querySelectorAll('div');
         for (var k = 0; k < list.length; k++) {
-            if (list[k].className == "divMinion") {
-                that = k;
-                if (list[that + 1].className == "divEmpty" && list[that + 67].className !== "divEmpty") {
-                    list[that].classList.add("divEmpty");
-                    list[that].classList.remove("divMinion");
+                if (list[k].className == "divMinion") {
+                    that = k;
+                    if (list[that + 1].className == "divEmpty" && list[that + 67].className !== "divEmpty") {
+                        list[that].classList.add("divEmpty");
+                        list[that].classList.remove("divMinion");
 
-                    list[that + 1].classList.add("divMinion");
-                    list[that + 1].classList.remove("divEmpty");
-                    step.play();
+                        list[that + 1].classList.add("divMinion");
+                        list[that + 1].classList.remove("divEmpty");
+                        step.play();
+                    }else if (list[that + 1].className == "divEmpty" && list[that + 133].className == "divEmpty" && list[that + 199].className == "divEmpty") {
+                        list[that].classList.add("divEmpty");
+                        list[that].classList.remove("divMinion");
+                        list[that + 1].classList.add("divMinion");
+                        list[that + 1].classList.remove("divEmpty");
+                        setTimeout(function () {
+                            list[that + 133].classList.add("divMinion");
+                            list[that + 1].classList.remove("divMinion");
+                        }, 500);
+    
+                        step.play();
+                    }
+                    break;
                 }
-                break;
-            }
+            
+           
+
         }
         victory();
     });
@@ -369,16 +383,16 @@ minecraftGame.tileSys = function () {
                         $(this).addClass('divWood');
                         $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
                         woodSound.play();
-                        }else if(tileType == 2 && (list[index + 1].className == 'divStone' || list[index - 1].className == 'divStone' || list[index +1].className == 'divWood' || list[index - 1].className == 'divWood') && (list[index - 66].className == 'divEmpty' && list[index + 66].className == 'divEmpty') ) { // wood can be built as a bridge.
-                            $(this).addClass('divWood');
-                            $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
-                            woodSound.play();
-                        }   
-                     if (tileType == 3 && (list[index + 66].className == 'divWood' || list[index + 1].className == 'divLeaf' || list[index - 66].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 66].className == 'divLeaf')) {
+                    } else if (tileType == 2 && (list[index + 1].className == 'divStone' || list[index - 1].className == 'divStone' || list[index + 1].className == 'divWood' || list[index - 1].className == 'divWood') && (list[index - 66].className == 'divEmpty' && list[index + 66].className == 'divEmpty')) { // wood can be built as a bridge.
+                        $(this).addClass('divWood');
+                        $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
+                        woodSound.play();
+                    }
+                    if (tileType == 3 && (list[index + 66].className == 'divWood' || list[index + 1].className == 'divLeaf' || list[index - 66].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 66].className == 'divLeaf')) {
                         $(this).addClass('divLeaf');
                         $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
                         grassSound.play();
-                    }if (tileType == 4 && list[index].className == 'divEmpty') {
+                    } if (tileType == 4 && list[index].className == 'divEmpty') {
                         $(this).addClass('divCloud');
                         $(this).removeClass('divWood divStone divLeaf divGrass divGround divEmpty');
                         cloudSound.play();
@@ -407,29 +421,29 @@ minecraftGame.tileSys = function () {
 function victory() {
 
 
-listVictory = document.querySelectorAll('div');
-for (var k = 0; k < listVictory.length; k++) {
+    listVictory = document.querySelectorAll('div');
+    for (var k = 0; k < listVictory.length; k++) {
 
-    if (listVictory[k].className == "divMinione") {
-        indexVictory = k;
-    }
-} //Next if loop : Whenever the minion is located next to the the mystery tile, then the mystery tile shows up.
-if (listVictory[indexVictory + 1].className == 'divMinion' || listVictory[indexVictory - 1].className == 'divMinion') {
-    $(".divMinione").addClass('victoryTile');
-    $(".divMinione").removeClass('.divMinione');
-    $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
+        if (listVictory[k].className == "divMinione") {
+            indexVictory = k;
+        }
+    } //Next if loop : Whenever the minion is located next to the the mystery tile, then the mystery tile shows up.
+    if (listVictory[indexVictory + 1].className == 'divMinion' || listVictory[indexVictory - 1].className == 'divMinion') {
+        $(".divMinione").addClass('victoryTile');
+        $(".divMinione").removeClass('.divMinione');
+        $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
 
-        var finalSong = new Audio('victorySong.mp3');
-        $('#finalModal').modal('show');
-        finalSong.play();
+            var finalSong = new Audio('victorySong.mp3');
+            $('#finalModal').modal('show');
+            finalSong.play();
 
-        $('#resetButton').click(function () {
-            finalSong.pause();
-            $('#bigBox').empty();
-            minecraftGame.init();
-            $('#finalModal').modal('hide')
+            $('#resetButton').click(function () {
+                finalSong.pause();
+                $('#bigBox').empty();
+                minecraftGame.init();
+                $('#finalModal').modal('hide')
+            });
         });
-    });
-}
+    }
 
 }
