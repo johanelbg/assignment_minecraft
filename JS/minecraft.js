@@ -7,7 +7,7 @@ $(window).on('load', function () {
     //loading the page...
     $('#startButton').click(function () {
         $('#myModal').modal('hide')
-        $('.loading').css('display', 'flex')    
+        $('.loading').css('display', 'flex')
 
         setTimeout(function () {
             $('.sideBar').css('display', 'flex');
@@ -129,35 +129,49 @@ minecraftGame.tileSys = function () {
     var cloudSound = new Audio('./sounds/breath.mp3');
     var toolSound = new Audio('./sounds/tool.mp3');
     var step = new Audio('./sounds/step.mp3');
+    var lostSong = new Audio('./sounds/lostSong.mp3');
 
     $("#toTheRight").on("click", function () {
         list = document.querySelectorAll('div');
         for (var k = 0; k < list.length; k++) {
-                if (list[k].className == "divMinion") {
-                    that = k;
-                    if (list[that + 1].className == "divEmpty" && list[that + 67].className !== "divEmpty") {
-                        list[that].classList.add("divEmpty");
-                        list[that].classList.remove("divMinion");
+            if (list[k].className == "divMinion") {
+                that = k;
+                if (list[that + 1].className == "divEmpty" && list[that + 67].className !== "divEmpty") {
+                    list[that].classList.add("divEmpty");
+                    list[that].classList.remove("divMinion");
+                    list[that + 1].classList.add("divMinion");
+                    list[that + 1].classList.remove("divEmpty");
+                    step.play();
+                } else if (list[that + 1].className == "divEmpty" && list[that + 133].className == "divEmpty" && list[that + 199].className == "divEmpty") {
 
-                        list[that + 1].classList.add("divMinion");
-                        list[that + 1].classList.remove("divEmpty");
-                        step.play();
-                    }else if (list[that + 1].className == "divEmpty" && list[that + 133].className == "divEmpty" && list[that + 199].className == "divEmpty") {
+                    setTimeout(function () {
+                        lostSong.play();
                         list[that].classList.add("divEmpty");
                         list[that].classList.remove("divMinion");
                         list[that + 1].classList.add("divMinion");
-                        list[that + 1].classList.remove("divEmpty");
                         setTimeout(function () {
                             list[that + 133].classList.add("divMinion");
                             list[that + 1].classList.remove("divMinion");
+                            setTimeout(function () {
+                                list[that + 133].classList.remove("divMinion");
+                                list[that + 199].classList.add("divMinion");
+                                list[that + 67].classList.remove("divMinion");
+                                setTimeout(function () {
+                                    $(".divMinion").css("background-image", "url('https://cdn.shopify.com/s/files/1/0822/1983/articles/tombstone-pixel-art-pixel-art-tombstone-halloween-rip-cemetery-pixel-8bit_large.png?v=1501229231')")
+                                    setTimeout(function () {
+                                        $("#sideBar").css('display', 'none');
+                                        $("#isLostBigBox").css('display', 'inline');
+                                    }, 2000);
+                                }, 500);
+                            }, 500);
                         }, 500);
-    
-                        step.play();
-                    }
-                    break;
+                    }, 200);
                 }
-            
-           
+               
+                break;
+            }
+
+
 
         }
         victory();
@@ -174,6 +188,32 @@ minecraftGame.tileSys = function () {
                     list[that - 1].classList.add("divMinion");
                     list[that - 1].classList.remove("divEmpty");
                     step.play();
+                } else if (list[that - 1].className == "divEmpty" && list[that + 131].className == "divEmpty" && list[that + 197].className == "divEmpty") {
+
+                    setTimeout(function () {
+                        lostSong.play();
+                        list[that].classList.add("divEmpty");
+                        list[that].classList.remove("divMinion");
+                        list[that - 1].classList.add("divMinion");
+                        setTimeout(function () {
+                            list[that + 131].classList.add("divMinion");
+                            list[that - 1].classList.remove("divMinion");
+                            setTimeout(function () {
+                                list[that + 131].classList.remove("divMinion");
+                                list[that + 197].classList.add("divMinion");
+                                list[that - 65].classList.remove("divMinion");
+                                setTimeout(function () {
+                                    $("#sideBar").css('display', 'none');
+                                    $(".divMinion").css("background-image", "url('https://cdn.shopify.com/s/files/1/0822/1983/articles/tombstone-pixel-art-pixel-art-tombstone-halloween-rip-cemetery-pixel-8bit_large.png?v=1501229231')")
+                                    setTimeout(function () {
+                                        $("#isLostBigBox").css('display', 'inline');
+                                        $("#sideBar").css('display', 'none');
+                                    }, 2000);
+                                }, 500);
+                            }, 500);
+                        }, 500);
+                    }, 200);
+                    
                 }
                 break;
             }
@@ -447,3 +487,11 @@ function victory() {
     }
 
 }
+
+function resetAfterDefeat() {
+    $('#bigBox').empty();
+    minecraftGame.init();a
+    $("#isLostBigBox").css('display', 'none');
+    $("#sideBar").css('display', 'flex');
+}
+
