@@ -1,6 +1,5 @@
 
 //display modal on loading
-
 $(window).on('load', function () {
     $('#myModal').modal('show');
 
@@ -490,7 +489,7 @@ function victory() {
 
 function resetAfterDefeat() {
     $('#bigBox').empty();
-    minecraftGame.init();a
+    minecraftGame.init();
     $("#isLostBigBox").css('display', 'none');
     $("#sideBar").css('display', 'flex');
 }
