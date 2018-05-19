@@ -172,7 +172,7 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if ((list[that - 1].className == "divStone" || list[that - 1].className == "divGrass" || list[that - 1].className == "divGround") && list[that - 67].className == "divEmpty") {
+                if ((list[that - 1].className == "divStone" || list[that - 1].className == "divGrass" || list[that - 1].className == "divGround" || list[that - 1].className == "divWood") && list[that - 67].className == "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that - 67].classList.add("divMinion");
@@ -190,7 +190,7 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if ((list[that + 1].className == "divStone" || list[that + 1].className == "divGrass" || list[that + 1].className == "divGround") && list[that - 65].className == "divEmpty") {
+                if ((list[that + 1].className == "divStone" || list[that + 1].className == "divGrass" || list[that + 1].className == "divGround" || list[that + 1].className == "divWood") && list[that - 65].className == "divEmpty") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that - 65].classList.add("divMinion");
@@ -208,7 +208,7 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that + 1].className == "divEmpty" && list[that + 67].className == "divEmpty" && (list[that + 133].className == "divStone" || list[that + 133].className == "divGrass" || list[that + 133].className == "divGround")) {
+                if (list[that + 1].className == "divEmpty" && list[that + 67].className == "divEmpty" && (list[that + 133].className == "divStone" || list[that + 133].className == "divGrass" || list[that + 133].className == "divGround") || list[that + 133].className == "divWood") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that + 67].classList.add("divMinion");
@@ -226,7 +226,7 @@ minecraftGame.tileSys = function () {
         for (var k = 0; k < list.length; k++) {
             if (list[k].className == "divMinion") {
                 that = k;
-                if (list[that - 1].className == "divEmpty" && list[that + 65].className == "divEmpty" && (list[that + 131].className == "divStone" || list[that + 131].className == "divGrass" || list[that + 131].className == "divGround")) {
+                if (list[that - 1].className == "divEmpty" && list[that + 65].className == "divEmpty" && (list[that + 131].className == "divStone" || list[that + 131].className == "divGrass" || list[that + 131].className == "divGround") || list[that + 131].className == "divWood") {
                     list[that].classList.add("divEmpty");
                     list[that].classList.remove("divMinion");
                     list[that + 65].classList.add("divMinion");
@@ -369,7 +369,12 @@ minecraftGame.tileSys = function () {
                         $(this).addClass('divWood');
                         $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
                         woodSound.play();
-                    } if (tileType == 3 && (list[index + 66].className == 'divWood' || list[index + 1].className == 'divLeaf' || list[index - 66].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 66].className == 'divLeaf')) {
+                        }else if(tileType == 2 && (list[index + 1].className == 'divStone' || list[index - 1].className == 'divStone' || list[index +1].className == 'divWood' || list[index - 1].className == 'divWood') && (list[index - 66].className == 'divEmpty' && list[index + 66].className == 'divEmpty') ) { // wood can be built as a bridge.
+                            $(this).addClass('divWood');
+                            $(this).removeClass('divLeaf divGround divStone divCloud divGrass divEmpty');
+                            woodSound.play();
+                        }   
+                     if (tileType == 3 && (list[index + 66].className == 'divWood' || list[index + 1].className == 'divLeaf' || list[index - 66].className == 'divLeaf' || list[index - 1].className == 'divLeaf' || list[index + 66].className == 'divLeaf')) {
                         $(this).addClass('divLeaf');
                         $(this).removeClass('divWood divGround divStone divCloud divGrass divEmpty');
                         grassSound.play();
