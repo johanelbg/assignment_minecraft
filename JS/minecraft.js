@@ -488,9 +488,6 @@ function victory() {
 }
 
 function resetAfterDefeat() {
-    $('#bigBox').empty();
-    minecraftGame.init();
-    $("#isLostBigBox").css('display', 'none');
-    $("#sideBar").css('display', 'flex');
+   location.reload()
 }
 
