@@ -131,6 +131,10 @@ minecraftGame.tileSys = function () {
     var lostSong = new Audio('./sounds/lostSong.mp3');
     var isLostSong = new Audio('./sounds/isLostSong.mp3');
 
+    $('.resetButton').click(function () {
+      location.reload();
+    });
+
     $("#toTheRight").on("click", function () {
         list = document.querySelectorAll('div');
         for (var k = 0; k < list.length; k++) {
@@ -168,12 +172,8 @@ minecraftGame.tileSys = function () {
                         }, 500);
                     }, 200);
                 }
-               
-                break;
+              break;
             }
-
-
-
         }
         victory();
     });
@@ -216,7 +216,6 @@ minecraftGame.tileSys = function () {
                             }, 500);
                         }, 500);
                     }, 200);
-                    
                 }
                 break;
             }
@@ -307,8 +306,11 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool");
         $("#toolContainer3").removeClass('selectedTool');
         $("#tileCreator").removeClass("selectedTileCreator");
-        $("#tutorialBox").css('display','inline');   // display a tutorial Div for each type of tool.
+        $("#tutorialBox").show();   // display a tutorial Div for each type of tool.
         $("#tutorialBox").text("Harvest wood and leaf ! Then use the wood to create bridges between stone tiles");
+        setTimeout(function(){
+          $("#tutorialBox").hide();
+        }, 2000)
         toolSound.play();
         $('.divLeaf').on("click", function () {
             if (counter === 1) {
@@ -339,8 +341,11 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool");
         $("#toolContainer3").removeClass('selectedTool');
         $("#tileCreator").removeClass("selectedTileCreator");
-        $("#tutorialBox").css('display','inline');  
+        $("#tutorialBox").show();
         $("#tutorialBox").text("Mine stones! Stack them one by one to walk up a stone stair ");
+        setTimeout(function(){
+          $("#tutorialBox").hide();
+        }, 2000);
         toolSound.play();
         $('.divStone').on("click", function () {
             if (counter === 2) {
@@ -361,8 +366,11 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").addClass("selectedTool")
         $("#toolContainer3").removeClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
-        $("#tutorialBox").css('display','inline');  
+        $("#tutorialBox").show();
         $("#tutorialBox").text("Harvest ground and grass! Use them to build the surface ");
+        setTimeout(function(){
+          $("#tutorialBox").hide();
+        }, 2000)
         toolSound.play();
         $('.divGrass').on("click", function () {
             if (counter === 3) {
@@ -393,8 +401,11 @@ minecraftGame.tileSys = function () {
         $("#toolContainer2").removeClass("selectedTool")
         $("#toolContainer3").addClass('selectedTool')
         $("#tileCreator").removeClass("selectedTileCreator")
-        $("#tutorialBox").css('display','inline');  
+        $("#tutorialBox").show();
         $("#tutorialBox").text("A cloud is standing in your way ? Call Bob !");
+        setTimeout(function(){
+          $("#tutorialBox").hide();
+        }, 2000);
         toolSound.play();
         $('.divCloud').on("click", function () {
             if (counter === 4) {
@@ -414,8 +425,11 @@ minecraftGame.tileSys = function () {
         $("#toolContainer1").removeClass("selectedTool")
         $("#toolContainer2").removeClass("selectedTool")
         $("#tileCreator").addClass("selectedTileCreator")
-        $("#tutorialBox").css('display','inline');  
+        $("#tutorialBox").show();
         $("#tutorialBox").text("Build the world!");
+        setTimeout(function(){
+          $("#tutorialBox").hide();
+        }, 2000);
         if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 4 || tileType == 5 || tileType == 6 || tileType == 7) {
             $('.divEmpty').on("click", function () {
 
@@ -469,14 +483,10 @@ minecraftGame.tileSys = function () {
         }
     });
 
-
-
 };
 
 
 function victory() {
-
-
     listVictory = document.querySelectorAll('div');
     for (var k = 0; k < listVictory.length; k++) {
 
@@ -493,11 +503,8 @@ function victory() {
             $('#finalModal').modal('show');
             finalSong.play();
 
-            $('#resetButton').click(function () {
-                finalSong.pause();
-                $('#bigBox').empty();
-                minecraftGame.init();
-                $('#finalModal').modal('hide')
+            $('.resetButton').click(function () {
+              location.reload();
             });
         });
     }
@@ -505,6 +512,5 @@ function victory() {
 }
 
 function resetAfterDefeat() {
-   location.reload()
-}
-
+   location.reload();
+};
