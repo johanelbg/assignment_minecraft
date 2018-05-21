@@ -146,7 +146,7 @@ minecraftGame.tileSys = function () {
                     list[that + 1].classList.add("divMinion");
                     list[that + 1].classList.remove("divEmpty");
                     step.play();
-                } else if (list[that + 1].className == "divEmpty" && list[that + 133].className == "divEmpty" && list[that + 199].className == "divEmpty") {
+                }if (list[that + 1].className == "divEmpty" && list[that + 133].className == "divEmpty" && list[that + 199].className == "divEmpty") {
                     setTimeout(function () {
                         lostSong.play();
                         list[that].classList.add("divEmpty");
