@@ -503,7 +503,7 @@ function victory() {
             $('#finalModal').modal('show');
             finalSong.play();
 
-            $('.resetButton').click(function () {
+            $('.resetButton').on("click", function () {
               location.reload();
             });
         });
