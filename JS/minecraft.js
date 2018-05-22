@@ -130,6 +130,7 @@ var toolSound = new Audio('./sounds/tool.mp3');
 var step = new Audio('./sounds/step.mp3');
 var lostSong = new Audio('./sounds/lostSong.mp3');
 var isLostSong = new Audio('./sounds/isLostSong.mp3');
+var aviramSong = new Audio('./sounds/AVIRAMSONG.mp3');
 
 minecraftGame.tileSys = function () {
 
@@ -578,8 +579,10 @@ function aviram() {
         }
     }
     if (aviramCounter == 5) {
+        $("#tutorialBox").css("display", 'inline');
         $("#tutorialBox").text("WWOWOWOWO AVIRAM WILL TELEPORT YOU TO YOUR SOULMATE ");
         listAviram[indexAviram+2].classList.add("divAviram");
+        aviramSong.play();
         setTimeout(function () {
             listAviram[indexAviram+2].classList.remove("divAviram");
             listAviram[indexAviram+1].classList.add("divAviram");
