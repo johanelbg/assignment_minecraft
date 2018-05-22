@@ -108,6 +108,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
     listMistery[random].classList.add("divMinione");
 
 };
+
 var list;
 var counter = 0;
 var tileType = 0;
@@ -118,6 +119,7 @@ var listMistery;
 var random;
 var listVictory;
 var indexVictory;
+var aviramCounter =0;
 var breakSound = new Audio('./sounds/break.mp3');
 var grassSound = new Audio('./sounds/grass.mp3');
 var stoneSound = new Audio('./sounds/stone.mp3');
@@ -350,6 +352,9 @@ minecraftGame.tileSys = function () {
                 $('.lastTile').addClass('divCloud');
                 cloudSound.play();
                 tileType = 4;
+                aviramCounter++;
+                aviram();
+
             }
         })
     })
@@ -501,6 +506,8 @@ function bottomRight(index) {
 }
 
 
+
+
 function suddenDeathRight(index) {
 
     setTimeout(function () {
@@ -555,4 +562,48 @@ function suddenDeathLeft(index) {
             }, 500);
         }, 500);
     }, 200);
+}
+
+function aviram() {
+    var listAviram;
+    var indexAviram;
+    var indexMinione;
+    listAviram = document.querySelectorAll('div');
+    for (var k = 0; k < listAviram.length; k++) {
+        if (listAviram[k].className == "divMinion") {
+            indexAviram = k;
+        }
+        if (listAviram[k].className == "divMinione") {
+            indexMinione = k;
+        }
+    }
+    if (aviramCounter == 5) {
+        $("#tutorialBox").text("WWOWOWOWO AVIRAM WILL TELEPORT YOU TO YOUR SOULMATE ");
+        listAviram[indexAviram+2].classList.add("divAviram");
+        setTimeout(function () {
+            listAviram[indexAviram+2].classList.remove("divAviram");
+            listAviram[indexAviram+1].classList.add("divAviram");
+            setTimeout(function () {
+                listAviram[indexAviram+1].classList.remove("divAviram");
+                listAviram[indexAviram].classList.remove("divMinion");
+                listAviram[indexAviram].classList.add("divEmpty");
+                listAviram[indexMinione+1].classList.add("divMinion");
+                listAviram[indexMinione-1].classList.add("divAviram");
+                $(".divMinione").addClass('victoryTile');
+                $(".divMinione").removeClass('.divMinione');
+                $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
+                    $("#tutorialBox").css('display', 'none');
+                    var finalSong = new Audio('victorySong.mp3');
+                    $('#finalModal').modal('show');
+                    finalSong.play();
+        
+                    $('.resetButton').on("click", function () {
+                        location.reload();
+                    });
+                });
+            }, 1200);
+        }, 1500);
+
+    }
+
 }
