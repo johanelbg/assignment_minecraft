@@ -598,6 +598,7 @@ function aviram() {
                     $("#tutorialBox").css('display', 'none');
                     var finalSong = new Audio('victorySong.mp3');
                     $('#finalModal').modal('show');
+                    aviramSong.pause();
                     finalSong.play();
         
                     $('.resetButton').on("click", function () {
