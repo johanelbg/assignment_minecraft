@@ -131,6 +131,9 @@ var step = new Audio('./sounds/step.mp3');
 var lostSong = new Audio('./sounds/lostSong.mp3');
 var isLostSong = new Audio('./sounds/isLostSong.mp3');
 var aviramSong = new Audio('./sounds/AVIRAMSONG.mp3');
+var listAviram;
+var indexAviram;
+var indexMinione;
 
 minecraftGame.tileSys = function () {
 
@@ -229,7 +232,7 @@ minecraftGame.tileSys = function () {
                 }
                 break;
             }
-        }           //il manque des break
+        }           //il manque      break
         victory();
     });
 
@@ -246,9 +249,6 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator");
         $("#tutorialBox").show();   // display a tutorial Div for each type of tool.
         $("#tutorialBox").text("Harvest wood and leaf ! Then use the wood to create bridges between stone tiles");
-        setTimeout(function () {
-            $("#tutorialBox").hide();
-        }, 2000)
         toolSound.play();
         $('.divLeaf').on("click", function () {
             if (counter === 1) {
@@ -281,9 +281,6 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator");
         $("#tutorialBox").show();
         $("#tutorialBox").text("Mine stones! Stack them one by one to walk up a stone stair ");
-        setTimeout(function () {
-            $("#tutorialBox").hide();
-        }, 2000);
         toolSound.play();
         $('.divStone').on("click", function () {
             if (counter === 2) {
@@ -306,9 +303,6 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator")
         $("#tutorialBox").show();
         $("#tutorialBox").text("Harvest ground and grass! Use them to build the surface ");
-        setTimeout(function () {
-            $("#tutorialBox").hide();
-        }, 2000)
         toolSound.play();
         $('.divGrass').on("click", function () {
             if (counter === 3) {
@@ -341,9 +335,6 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").removeClass("selectedTileCreator")
         $("#tutorialBox").show();
         $("#tutorialBox").text("A cloud is standing in your way ? Call Bob !");
-        setTimeout(function () {
-            $("#tutorialBox").hide();
-        }, 2000);
         toolSound.play();
         $('.divCloud').on("click", function () {
             if (counter === 4) {
@@ -368,9 +359,6 @@ minecraftGame.tileSys = function () {
         $("#tileCreator").addClass("selectedTileCreator")
         $("#tutorialBox").show();
         $("#tutorialBox").text("Build the world!");
-        setTimeout(function () {
-            $("#tutorialBox").hide();
-        }, 2000);
         if (tileType == 1 || tileType == 2 || tileType == 3 || tileType == 4 || tileType == 5 || tileType == 6 || tileType == 7) {
             $('.divEmpty').on("click", function () {
 
@@ -566,9 +554,7 @@ function suddenDeathLeft(index) {
 }
 
 function aviram() {
-    var listAviram;
-    var indexAviram;
-    var indexMinione;
+   
     listAviram = document.querySelectorAll('div');
     for (var k = 0; k < listAviram.length; k++) {
         if (listAviram[k].className == "divMinion") {
@@ -592,6 +578,7 @@ function aviram() {
                 listAviram[indexAviram].classList.add("divEmpty");
                 listAviram[indexMinione+1].classList.add("divMinion");
                 listAviram[indexMinione-1].classList.add("divAviram");
+
                 $(".divMinione").addClass('victoryTile');
                 $(".divMinione").removeClass('.divMinione');
                 $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
@@ -606,7 +593,8 @@ function aviram() {
                     });
                 });
             }, 1200);
-        }, 1500);
+        }, 1500)
+        
 
     }
 
