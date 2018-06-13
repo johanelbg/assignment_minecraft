@@ -101,7 +101,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
         }
     }
 
-    // We randomize the location of the mystery tile so every time the user plays the game the tile will be on another location 
+    // We randomize the location of the mystery tile so every time the user plays the game the tile will be on another location
     listMistery = document.querySelectorAll(".divEmpty");
     random = Math.floor(Math.random() * listMistery.length);
     listMistery[random].classList.remove("divEmpty");
@@ -441,7 +441,7 @@ function victory() {
         $(".divMinione").removeClass('.divMinione');
         $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
             $("#tutorialBox").css('display', 'none');
-            var finalSong = new Audio('victorySong.mp3');
+            var finalSong = new Audio('./sounds/victorySong.mp3');
             $('#finalModal').modal('show');
             finalSong.play();
 
@@ -596,11 +596,11 @@ function aviram() {
                 $(".divMinione").removeClass('.divMinione');
                 $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
                     $("#tutorialBox").css('display', 'none');
-                    var finalSong = new Audio('victorySong.mp3');
+                    var finalSong = new Audio('./sounds/victorySong.mp3');
                     $('#finalModal').modal('show');
                     aviramSong.pause();
                     finalSong.play();
-        
+
                     $('.resetButton').on("click", function () {
                         location.reload();
                     });
