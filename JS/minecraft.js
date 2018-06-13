@@ -84,7 +84,6 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
                 var divGrass = $("<div/>");
                 divGrass.addClass('divGrass');
                 $('#bigBox').append(divGrass);
-
             } else if (tile == 7) {
                 var divMinione = $("<div/>");
                 divMinione.addClass('divMinione');
@@ -101,7 +100,7 @@ minecraftGame.layout = function () {  //Creates a 2D array with a method that ta
         }
     }
 
-    // We randomize the location of the mystery tile so every time the user plays the game the tile will be on another location 
+    // We randomize the location of the mystery tile so every time the user plays the game the tile will be on another location
     listMistery = document.querySelectorAll(".divEmpty");
     random = Math.floor(Math.random() * listMistery.length);
     listMistery[random].classList.remove("divEmpty");
@@ -554,7 +553,7 @@ function suddenDeathLeft(index) {
 }
 
 function aviram() {
-   
+
     listAviram = document.querySelectorAll('div');
     for (var k = 0; k < listAviram.length; k++) {
         if (listAviram[k].className == "divMinion") {
@@ -583,18 +582,18 @@ function aviram() {
                 $(".divMinione").removeClass('.divMinione');
                 $(".victoryTile").on("click", function () { //clicking on the Mystery tile will change it into the Victory Tile, which is the unique condition to win this game.
                     $("#tutorialBox").css('display', 'none');
-                    var finalSong = new Audio('victorySong.mp3');
+                    var finalSong = new Audio('./sounds/victorySong.mp3');
                     $('#finalModal').modal('show');
                     aviramSong.pause();
                     finalSong.play();
-        
+
                     $('.resetButton').on("click", function () {
                         location.reload();
                     });
                 });
             }, 1200);
         }, 1500)
-        
+
 
     }
 
